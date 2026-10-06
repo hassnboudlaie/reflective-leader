@@ -276,6 +276,64 @@ footer{padding:22px 0 28px;text-align:center;font-size:9px;color:#8d969f}
   .bookline .wrap{grid-template-columns:1fr}.stagewrap{padding:22px 11px 50px}
   .maincard{padding:17px}.progress-top{align-items:flex-start}.rolebar{grid-template-columns:70px 1fr 30px}
 }
+
+/* === APP TYPOGRAPHY & ACCESSIBILITY UPGRADE v0.7 === */
+:root{--muted:#51606d;--ink:#1f2b36}
+body{font-size:16px}
+.brand b{font-size:17px}.brand span{font-size:12px}
+.nav-actions button{font-size:14px;padding:10px 12px}
+.hero-copy>p{font-size:17px;line-height:1.95}
+.hero-note{font-size:13px}
+.art-caption b{font-size:15px}.art-caption span{font-size:13px;line-height:1.7}
+.pillar .n,.stage-no,.kicker,.eyebrow{font-size:12px}
+.pillar h3{font-size:18px}.pillar p{font-size:14px;line-height:1.75}.pillar strong{font-size:13px}
+.bookline p{font-size:14px;line-height:1.8}
+.progress-top b{font-size:15px}.progress-top span{font-size:13px}
+.lead{font-size:16px;line-height:1.9}
+.lesson b{font-size:13px}.lesson p{font-size:15px;line-height:1.85}
+.question>label,.question>strong{font-size:15px}
+.choice{font-size:15px;min-height:58px;padding:13px 14px}
+.mini-copy{font-size:13px;line-height:1.75}
+textarea{font-size:15px;min-height:105px}
+.slider-row b{font-size:15px}.slider-row span{font-size:13px}
+.scale-labels{font-size:12px}
+.rolecard h3{font-size:19px}.rolecard .pronoun{font-size:13px}.rolecard p{font-size:14px;line-height:1.75}
+.rolecard .tag{font-size:11px;padding:5px 8px}
+.mixbox label{font-size:13px}.mixbox select{font-size:15px;padding:12px}
+.idea{font-size:15px;line-height:1.9}
+.actioncard b{font-size:15px}.actioncard span{font-size:13px;line-height:1.7}
+.result h3{font-size:22px}.result .sub{font-size:14px}
+.resultitem label{font-size:12px}.resultitem b{font-size:14px}
+.reflectbox b{font-size:14px}.reflectbox p{font-size:14px;line-height:1.8}
+.sidecard h3{font-size:15px}.pathitem{font-size:13px;padding:10px 11px}
+.note{font-size:12px;line-height:1.7}
+.booklogic summary{font-size:14px}.booklogic div{font-size:13px;line-height:1.8}
+.stage-actions button{font-size:15px;min-height:48px;padding:10px 15px}
+.btn{font-size:15px}
+.context-domain{border:1px solid var(--line);border-radius:15px;background:#fff;margin:10px 0;overflow:hidden}
+.context-domain summary{list-style:none;cursor:pointer;padding:14px 15px;color:var(--navy);font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.context-domain summary::-webkit-details-marker{display:none}
+.context-domain summary::after{content:"＋";color:var(--gold);font-size:18px}
+.context-domain[open] summary::after{content:"−"}
+.context-domain .domain-body{padding:0 15px 8px}
+.context-mode{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.context-mode button{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:8px 12px;font-size:13px}
+.context-mode button.active{background:#f4e8d3;border-color:#caa66d;font-weight:900}
+.warningline{font-size:13px;color:#725e46;background:#fbf4e8;border:1px solid #ead7b7;border-radius:12px;padding:10px 12px;margin-top:10px}
+.align-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.metric-box{border:1px solid var(--line);border-radius:14px;background:#fff;padding:13px}
+.metric-box label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.metric-box b{font-size:16px;color:var(--navy)}
+@media(max-width:600px){
+  body{font-size:16px}
+  .hero-copy>p,.lead{font-size:16px}
+  .pillars-grid,.align-grid{grid-template-columns:1fr}
+  .sidecard{display:none}
+  .stagegrid{display:block}
+  .maincard{border-radius:18px}
+  .choice{font-size:15px}
+}
+
 </style>
 </head>
 <body>
@@ -385,21 +443,21 @@ footer{padding:22px 0 28px;text-align:center;font-size:9px;color:#8d969f}
     <div class="wrap">
       <div class="pillars-grid">
         <div class="pillar">
-          <div class="n">01 · SELF</div>
-          <h3>خودت را ببین</h3>
-          <p>نقش، تجربه، محیط و چند پیش‌فرض مهم تو درباره رهبری.</p>
-          <strong>نه برای برچسب‌زدن؛ برای framing مسیر.</strong>
+          <div class="n">00 · ORIENTATION</div>
+          <h3>خودت و پیش‌فرض‌هایت را ببین</h3>
+          <p>این بخش فقط onboarding و personalization است؛ هنوز وارد مدل اصلی کتاب نشده‌ای.</p>
+          <strong>Core model از Context شروع می‌شود.</strong>
         </div>
         <div class="pillar">
-          <div class="n">02 · CONTEXT</div>
-          <h3>موقعیت را بفهم</h3>
-          <p>یک مسئله واقعی را انتخاب کن و ببین چه چیزی در task، فرد، تیم و شرایط مهم است.</p>
-          <strong>Context before prescription.</strong>
+          <div class="n">01 · CONTEXT</div>
+          <h3>Context را دقیق بفهم</h3>
+          <p>Tasks، Employees، Team و Organization را جداگانه ببین؛ حتی Today و Future را مقایسه کن.</p>
+          <strong>اولین قدم مدل Trost.</strong>
         </div>
         <div class="pillar">
-          <div class="n">03 · ROLE & REFLECTION</div>
-          <h3>نقش را انتخاب و بازتاب کن</h3>
-          <p>بین Boss، Coach، Partner و Enabler یک Role Mix بساز؛ اقدام کن و نتیجه را دوباره ببین.</p>
+          <div class="n">02 · IDEA → RELATIONSHIP → TOOLS → REFLECTION</div>
+          <h3>Idea of Leadership را بساز و زنده کن</h3>
+          <p>چهار Role را بشناس، Role Mix خودت را تعریف کن، با کارکنان و مافوق هم‌فهمی بساز و ابزارهای سازگار انتخاب کن.</p>
           <strong>Act → Reflect → Adjust.</strong>
         </div>
       </div>
@@ -474,88 +532,142 @@ footer{padding:22px 0 28px;text-align:center;font-size:9px;color:#8d969f}
   </div>
 </div>
 
+
 <script>
+const roleMeta={
+  boss:{fa:"رئیس",en:"Boss",pronoun:"I / من",desc:"مسئولیت اصلی تصمیم و حل مسئله را می‌پذیرم؛ جهت، انتظار و کنترل را روشن می‌کنم.",toxic:"Tyrant / مستبد"},
+  coach:{fa:"مربی",en:"Coach",pronoun:"You / تو",desc:"بر self-regulation تکیه می‌کنم؛ بیشتر سؤال می‌پرسم و از فرد می‌خواهم راه‌حل خودش را بسازد.",toxic:"Eternal Therapist / درمانگر همیشگی"},
+  partner:{fa:"شریک",en:"Partner",pronoun:"We / ما",desc:"مسئولیت و تصمیم را با تیم به اشتراک می‌گذارم؛ مانند عضو برابر تیم و moderator عمل می‌کنم.",toxic:"Best Friend / دوست صمیمی"},
+  enabler:{fa:"توانمندساز",en:"Enabler",pronoun:"Them / آنها",desc:"شرایط، منابع، ساختار و قابلیت‌های لازم برای عملکرد خوب را فراهم می‌کنم.",toxic:"Overprotective Mother / حمایت‌گر افراطی"}
+};
+
+const contextDimensions={
+  tasks:[
+    ["taskCertainty","قطعیت Task","عدم قطعیت بالا در نتیجه و مسیر","نتیجه و مسیر کاملاً روشن"],
+    ["managerResponsibility","سطح مسئولیت مدیر","بیشتر راهبردی / بلندمدت","بیشتر عملیاتی / روزمره"],
+    ["timePressure","فشار زمانی ساختاری","زمان کافی برای بررسی","تصمیم سریع یک عامل دائمی موفقیت"]
+  ],
+  employees:[
+    ["motivation","برداشت از انگیزش","بیشتر extrinsic","بیشتر intrinsic / خودانگیخته"],
+    ["replaceability","جایگزین‌پذیری","جایگزینی نسبتاً آسان","کمیاب / جایگزینی دشوار"],
+    ["individuality","فردیت و Diversity","Conformity / شباهت مطلوب","Individuality / تفاوت مطلوب"],
+    ["technicalSuperiority","برتری تخصصی","مدیر technically superior","کارکنان technically superior"]
+  ],
+  team:[
+    ["physicalDistance","فاصله فیزیکی","هم‌مکان و تعامل حضوری","پراکنده / virtual"],
+    ["influence","نوع Influence مدیر","اختیار رسمی / سلسله‌مراتبی","نفوذ بیشتر از expertise"],
+    ["dependencies","وابستگی متقابل","کارها عمدتاً مستقل","وابستگی متقابل بالا"],
+    ["span","Span of Control","تعداد کم افراد","تعداد زیاد افراد"],
+    ["cohesion","Cohesion","انسجام پایین","انسجام بالا"],
+    ["trust","Trust / Skepticism","پذیرش بالا و کم‌چالشی","skepticism و challenge سازنده"],
+    ["commitment","جهت Commitment","عمودی به مدیر","افقی به مشتری / همکاران"],
+    ["groupTask","منطق Group Task","موفقیت وابسته به قوی‌ترین عضو","موفقیت وابسته به ضعیف‌ترین عضو"]
+  ],
+  organization:[
+    ["interconnection","مرزبندی با واحدهای دیگر","Silo / جدایی بالا","Interconnected / ارتباط بالا"],
+    ["strategicRelevance","اهمیت راهبردی","اهمیت راهبردی معمول","Key function / اهمیت بسیار بالا"],
+    ["risk","Risk","خطاها پیامد محدود دارند","High-risk / خطا می‌تواند بسیار پرهزینه باشد"],
+    ["autonomy","Autonomy","محدودیت و regulation بالا","آزادی تصمیم و autonomy بالا"]
+  ]
+};
+
+function defaultContext(){
+  const o={};
+  Object.values(contextDimensions).flat().forEach(([k])=>o[k]=5);
+  return o;
+}
+
 const state={
-  identity:{role:"",experience:"",team:""},
+  identity:{role:"",experience:"",environment:""},
   assumption:"",
+  contextMode:"today",
+  contextToday:defaultContext(),
+  contextFuture:defaultContext(),
+  primary:"",
+  secondary:"",
+  personalityFit:5,
+  competenceFit:5,
+  expectedRole:"",
+  sharedEmployee:5,
+  sharedSuperior:5,
+  communication:"",
   situation:"",
-  note:"",
-  certainty:3,selfReg:3,shared:3,enable:3,
-  primary:"",secondary:"",
-  action:"",
+  situationRole:"",
+  toolGoal:"",
   reflection:""
 };
+
 let current=0;
 
 const stages=[
   {
-    nav:"Self",
-    title:"تو از چه جایگاهی رهبری می‌کنی؟",
-    lead:"سه انتخاب کوتاه برای framing مسیر؛ نه برای ساختن یک تیپ شخصیتی.",
-    lesson:"کتاب با این فرض جلو می‌رود که یک نسخه واحد برای همه مدیران و همه موقعیت‌ها وجود ندارد.",
-    book:"فصل‌های آغازین: رهبری باید در واقعیت روزمره و Context مشخص فهمیده شود."
-  },
-  {
-    nav:"Assumptions",
-    title:"کدام باور بیشتر شبیه توست؟",
-    lead:"یک باور را انتخاب کن؛ در مرحله بعد قرار نیست آن را درست یا غلط اعلام کنیم.",
-    lesson:"تقریباً برای هر توصیه جذاب درباره «رهبری خوب» می‌توان یک counter-argument معقول ساخت؛ Context تعیین‌کننده است.",
-    book:"فصل ۳: نقد assumptions و توصیه‌های جهان‌شمول درباره good leadership."
-  },
-  {
-    nav:"Situation",
-    title:"یک موقعیت واقعی را انتخاب کن",
-    lead:"از کلی‌گویی فاصله بگیریم؛ journey از اینجا روی یک مسئله واقعی تو ساخته می‌شود.",
-    lesson:"رهبری در لحظه‌های کوچک دیده می‌شود: تصمیم، شکایت، ایده، overload، تعارض و مسئله‌های روزمره.",
-    book:"فصل‌های ۱ و ۲: daily leadership behavior و challengeهای واقعی مدیر."
+    nav:"Orientation",
+    title:"قبل از مدل: تو کیستی و چه فرضی داری؟",
+    lead:"این onboarding برای شخصی‌سازی است؛ مدل اصلی کتاب هنوز شروع نشده.",
+    lesson:"Trost پیش از ارائه مدل، محدودیت نسخه‌های جهان‌شمول و نظریه‌های ساده‌ساز رهبری را نقد می‌کند.",
+    book:"فصل‌های ۱ تا ۴: رفتار روزمره، challengeهای رهبری، محدودیت نظریه‌های رایج و معنای Reflective Leadership."
   },
   {
     nav:"Context",
-    title:"Context را سریع اسکن کن",
-    lead:"چهار signal را بسنج؛ این یک Reflection Scan است، نه assessment علمی کامل.",
-    lesson:"یک رفتار واحد در دو Context متفاوت می‌تواند کاملاً نتایج متفاوتی بسازد.",
-    book:"فصل ۶: task، employee، team و organizational embeddedness."
+    title:"قدم اول مدل: Leadership Context",
+    lead:"Context را در چهار سطح واقعی کتاب ببین: Tasks، Employees، Team و Organization.",
+    lesson:"در خود مدل، اولین قدم «رهبر» نیست؛ Context است. حتی می‌توان Today و Future را جداگانه سنجید.",
+    book:"فصل ۶: Tasks / Employees / Team / Organization؛ questionnaire روی مقیاس ۰ تا ۱۰ و امکان Today/Future."
   },
   {
-    nav:"Role",
-    title:"کدام Role ارزش بررسی بیشتری دارد؟",
-    lead:"Signalها را ببین و بعد خودت Role اصلی و پشتیبان را انتخاب کن.",
-    lesson:"Boss، Coach، Partner و Enabler هیچ‌کدام ذاتاً همیشه خوب یا همیشه بد نیستند.",
-    book:"فصل ۷ و ۸: چهار Role و ساختن Most Suitable Role Mix."
+    nav:"Four Roles",
+    title:"چهار Role را بدون رتبه‌بندی بشناس",
+    lead:"هیچ Role به‌خودی‌خود خوب یا بد نیست؛ و این اپ هم Context را به‌طور مکانیکی به Role تبدیل نمی‌کند.",
+    lesson:"چهار Role عبارت‌اند از Boss، Coach، Partner و Enabler؛ هرکدام رفتار و خطر سوءبرداشت خودشان را دارند.",
+    book:"فصل ۷: چهار Role، comparison و Toxic Siblings."
   },
   {
-    nav:"Action",
-    title:"یک Next Move واقعی انتخاب کن",
-    lead:"تصمیم را به یک رفتار کوچک، قابل مشاهده و قابل بازبینی تبدیل کن.",
-    lesson:"ابزار و رفتار باید از Leadership Idea و Context پیروی کنند، نه برعکس.",
-    book:"فصل ۱۰: compatible leadership tools و ترجمه ایده به عمل."
+    nav:"Idea of Leadership",
+    title:"Idea of Leadership خودت را تعریف کن",
+    lead:"تو مسئول تعریف Role Mix مناسب خودت هستی؛ Context مهم است، اما شخصیت، competence و role attribution هم وارد می‌شوند.",
+    lesson:"کتاب عمداً از linear mapping میان Context و Role پرهیز می‌کند؛ Role Mix باید آگاهانه تعریف شود.",
+    book:"فصل ۸: Role Mix + Leadership Context + Personality + Competence + Assumed Role Attribution."
+  },
+  {
+    nav:"Shared Idea",
+    title:"آیا دیگران همان Role را از تو می‌فهمند؟",
+    lead:"Idea of Leadership وقتی مؤثر می‌شود که در رابطه با کارکنان روشن و قابل پیش‌بینی باشد و مافوق نیز امکان اجرای آن را بدهد.",
+    lesson:"ابهام درباره Role می‌تواند friction و نارضایتی بسازد؛ trust به پیش‌بینی‌پذیری رفتار هم وابسته است.",
+    book:"فصل ۹.۱، ۹.۳ و ۹.۵ + Hypotheses مربوط به leader–employee و leader–leader relationship."
+  },
+  {
+    nav:"Situation",
+    title:"حالا یک Leadership Situation واقعی را بررسی کن",
+    lead:"Role Mix یک default است؛ موقعیت فوری ممکن است نیازمند deviation از نقش اصلی باشد.",
+    lesson:"Good leadership situational است. یک مدیر موفق باید بتواند هر چهار Role را در موقعیت‌های لازم به‌کار بگیرد.",
+    book:"فصل ۹.۴ و Hypothesis مربوط به deviation from primary roles."
+  },
+  {
+    nav:"Tools",
+    title:"از Benefit به Tool برو",
+    lead:"اول مشخص کن دنبال چه benefit هستی؛ بعد ابزار را انتخاب کن، نه برعکس.",
+    lesson:"ابزار رهبری فقط وقتی کار می‌کند که با Idea of Leadership و primary roles سازگار باشد.",
+    book:"فصل ۱۰: performance expectations، needs، reward، poor performance، feedback، learning و talent."
   },
   {
     nav:"Reflection",
-    title:"قبل از اقدام، معیار یادگیری‌ات را روشن کن",
-    lead:"الان بنویس بعداً دنبال چه اثری می‌گردی؛ همین، Reflection را واقعی می‌کند.",
-    lesson:"رهبری بازتابی یعنی عمل کنی، اثر را ببینی و Role Mix را دوباره تنظیم کنی.",
-    book:"فصل ۹ و ۱۱: continuous reflection و shift in how we think about leadership."
+    title:"Continuous Reflection را تبدیل به عادت کن",
+    lead:"Reflection باید روی یک situation مشخص انجام شود و به تنظیم دوباره Role Mix یا رفتار منجر شود.",
+    lesson:"رهبری بازتابی یک learning process مستمر است، نه تسلط بر چند اصل ثابت.",
+    book:"فصل ۹.۶، ۹.۷ و فصل ۱۱."
   },
   {
-    nav:"Result",
-    title:"Leadership Reflection Snapshot",
-    lead:"این خروجی یک hypothesis برای اقدام است؛ نه verdict نهایی درباره تو.",
-    lesson:"هدف نهایی، ساختن یک Idea of Leadership آگاهانه و قابل اصلاح است.",
-    book:"ترکیب منطق فصل‌های ۴ تا ۱۱."
+    nav:"Snapshot",
+    title:"Leadership Model Snapshot",
+    lead:"خروجی اینجا یک hypothesis برای اقدام و Reflection است، نه نمره یا verdict.",
+    lesson:"هدف، ساختن و refine کردن یک Idea of Leadership آگاهانه، مشترک و قابل اجراست.",
+    book:"Leadership Context → Idea of Leadership → Relationship → Tools → Continuous Reflection."
   }
 ];
 
-const roleMeta={
-  boss:{fa:"رئیس",en:"Boss",pronoun:"I / من",desc:"جهت و انتظار را روشن می‌کنم و مسئولیت پاسخ و تصمیم را بیشتر می‌پذیرم."},
-  coach:{fa:"مربی",en:"Coach",pronoun:"You / تو",desc:"با سؤال، فرد را به فکرکردن، تصمیم‌گیری و self-regulation بیشتر دعوت می‌کنم."},
-  partner:{fa:"شریک",en:"Partner",pronoun:"We / ما",desc:"مسئله، تصمیم و مسئولیت را تا حد ممکن مشترک و مشارکتی پیش می‌بریم."},
-  enabler:{fa:"توانمندساز",en:"Enabler",pronoun:"Them / آنها",desc:"روی منابع، ساختار و شرایطی تمرکز می‌کنم که عملکرد بهتر را ممکن می‌کند."}
-};
-
-function saveState(){localStorage.setItem("reflectiveLeaderV06",JSON.stringify(state))}
+function saveState(){localStorage.setItem("reflectiveLeaderV07",JSON.stringify(state))}
 try{
-  const saved=JSON.parse(localStorage.getItem("reflectiveLeaderV06")||"null");
+  const saved=JSON.parse(localStorage.getItem("reflectiveLeaderV07")||"null");
   if(saved)Object.assign(state,saved);
 }catch(e){}
 
@@ -573,37 +685,124 @@ function pick(selector,value,el,fn){
   document.querySelectorAll(selector).forEach(x=>x.classList.remove("active"));
   el.classList.add("active");fn(value);saveState();
 }
+function sliderRow(obj,key,title,left,right){
+  return `<div class="slider-row">
+    <div><b>${title}</b><span>${left} ↔ ${right}</span></div>
+    <div>
+      <input type="range" min="0" max="10" value="${obj[key]}" oninput="objSetter('${key}',this.value);this.nextElementSibling.querySelector('b').textContent=this.value">
+      <div class="scale-labels"><span>۰</span><b>${obj[key]}</b><span>۱۰</span></div>
+    </div>
+  </div>`;
+}
+function objSetter(key,value){
+  const target=state.contextMode==="today"?state.contextToday:state.contextFuture;
+  target[key]=Number(value);saveState();
+}
+function simpleScale(key,value,title,left,right,handler){
+  return `<div class="slider-row"><div><b>${title}</b><span>${left} ↔ ${right}</span></div><div>
+    <input type="range" min="0" max="10" value="${value}" oninput="${handler}(this.value);this.nextElementSibling.querySelector('b').textContent=this.value">
+    <div class="scale-labels"><span>۰</span><b>${value}</b><span>۱۰</span></div>
+  </div></div>`;
+}
+function setPersonality(v){state.personalityFit=Number(v);saveState()}
+function setCompetence(v){state.competenceFit=Number(v);saveState()}
+function setSharedEmployee(v){state.sharedEmployee=Number(v);saveState()}
+function setSharedSuperior(v){state.sharedSuperior=Number(v);saveState()}
 
-function selfStage(){
+function orientationStage(){
   const roles=["مدیر ارشد","مدیر میانی","سرپرست / Team Lead","مدیر پروژه / نقش بدون اختیار رسمی"];
   const exp=["کمتر از ۲ سال","۲ تا ۵ سال","۶ تا ۱۰ سال","بیش از ۱۰ سال"];
-  const teams=["کار استاندارد و پایدار","کار تخصصی و حرفه‌ای","محیط پروژه‌ای و بین‌وظیفه‌ای","محیط پرابهام و تغییرپذیر"];
+  const env=["کار استاندارد و پایدار","کار تخصصی و حرفه‌ای","محیط پروژه‌ای و بین‌وظیفه‌ای","محیط پرابهام و تغییرپذیر"];
+  const beliefs=[
+    ["empower","«رهبر خوب باید تقریباً همیشه اختیار بدهد.»"],
+    ["direct","«دستور مستقیم معمولاً نشانه رهبری ضعیف است.»"],
+    ["trust","«اعتماد بیشتر تقریباً همیشه بهتر است.»"],
+    ["depends","«تقریباً همیشه باید بپرسم: بستگی به چه Contextی دارد؟»"]
+  ];
   return `
     <div class="question"><strong>نقش فعلی تو چیست؟</strong><div class="choice-grid">
-      ${roles.map(v=>`<button class="choice selfrole ${state.identity.role===v?"active":""}" onclick="pick('.selfrole','${v}',this,x=>state.identity.role=x)">${v}</button>`).join("")}
+      ${roles.map(v=>`<button class="choice orole ${state.identity.role===v?"active":""}" onclick="pick('.orole','${v}',this,x=>state.identity.role=x)">${v}</button>`).join("")}
     </div></div>
     <div class="question"><strong>تجربه هدایت دیگران؟</strong><div class="choice-grid">
-      ${exp.map(v=>`<button class="choice selfexp ${state.identity.experience===v?"active":""}" onclick="pick('.selfexp','${v}',this,x=>state.identity.experience=x)">${v}</button>`).join("")}
+      ${exp.map(v=>`<button class="choice oexp ${state.identity.experience===v?"active":""}" onclick="pick('.oexp','${v}',this,x=>state.identity.experience=x)">${v}</button>`).join("")}
     </div></div>
     <div class="question"><strong>محیط کاری تو بیشتر شبیه کدام است؟</strong><div class="choice-grid">
-      ${teams.map(v=>`<button class="choice selfteam ${state.identity.team===v?"active":""}" onclick="pick('.selfteam','${v}',this,x=>state.identity.team=x)">${v}</button>`).join("")}
-    </div></div>`;
+      ${env.map(v=>`<button class="choice oenv ${state.identity.environment===v?"active":""}" onclick="pick('.oenv','${v}',this,x=>state.identity.environment=x)">${v}</button>`).join("")}
+    </div></div>
+    <div class="question"><strong>کدام جمله بیشتر شبیه شهود فعلی توست؟</strong><div class="choice-grid">
+      ${beliefs.map(([k,v])=>`<button class="choice obelief ${state.assumption===k?"active":""}" onclick="pick('.obelief','${k}',this,x=>state.assumption=x)">${v}</button>`).join("")}
+    </div></div>
+    <div class="warningline">این مرحله فقط onboarding است. ترتیب مدل اصلی کتاب از Context شروع می‌شود.</div>`;
 }
 
-function assumptionStage(){
-  const items=[
-    ["appreciation","«رهبر خوب همیشه باید appreciation و قدردانی نشان دهد.»"],
-    ["empower","«رهبر خوب باید تا حد ممکن اختیار بدهد و افراد را empower کند.»"],
-    ["direct","«دستور مستقیم معمولاً نشانه رهبری ضعیف است.»"],
-    ["trust","«اعتماد بیشتر تقریباً همیشه نتیجه بهتری می‌سازد.»"]
-  ];
-  return `<div class="question"><strong>کدام گزاره بیشتر با شهود فعلی تو جور است؟</strong><div class="choice-grid">
-    ${items.map(([k,v])=>`<button class="choice belief ${state.assumption===k?"active":""}" onclick="pick('.belief','${k}',this,x=>state.assumption=x)">${v}</button>`).join("")}
-  </div><div class="mini-copy">قرار نیست این باور را رد کنیم؛ فقط می‌خواهیم assumptions پنهانش را بعداً ببینیم.</div></div>`;
+function contextGroup(title,key,open=false){
+  const obj=state.contextMode==="today"?state.contextToday:state.contextFuture;
+  const rows=contextDimensions[key].map(([k,label,left,right])=>sliderRow(obj,k,label,left,right)).join("");
+  return `<details class="context-domain" ${open?"open":""}>
+    <summary>${title}</summary>
+    <div class="domain-body">${rows}</div>
+  </details>`;
+}
+function contextStage(){
+  return `
+    <div class="context-mode">
+      <button class="${state.contextMode==="today"?"active":""}" onclick="state.contextMode='today';saveState();render()">امروز</button>
+      <button class="${state.contextMode==="future"?"active":""}" onclick="state.contextMode='future';saveState();render()">آینده مدنظر</button>
+    </div>
+    ${contextGroup("۱. Tasks / ویژگی‌های کار","tasks",true)}
+    ${contextGroup("۲. Employees / ویژگی‌های کارکنان","employees")}
+    ${contextGroup("۳. Team / ویژگی‌های تیم","team")}
+    ${contextGroup("۴. Organization / جایگاه تیم در سازمان","organization")}
+    <div class="warningline">این سنجش برای Reflection است، نه برای تولید یک «نمره علمی». مهم‌تر از validity عددها، فکرکردن ساختاری درباره Context است.</div>`;
+}
+
+function roleCard(k){
+  const r=roleMeta[k];
+  return `<div class="rolecard">
+    <h3>${r.fa} <small style="font-size:13px;color:#82909d">/ ${r.en}</small></h3>
+    <div class="pronoun">${r.pronoun}</div>
+    <p>${r.desc}</p>
+    <div class="warningline">سوءبرداشت محتمل: ${r.toxic}</div>
+  </div>`;
+}
+function rolesStage(){
+  return `<div class="rolegrid">${["boss","coach","partner","enabler"].map(roleCard).join("")}</div>
+    <div class="reflectbox"><b>اصل کتاب</b><p>هیچ Role ذاتاً برنده نیست. Context فقط به Reflection کمک می‌کند؛ این اپ عمداً هیچ mapping مکانیکی Context → Role تولید نمی‌کند.</p></div>`;
+}
+function roleOptions(selected){
+  return Object.keys(roleMeta).map(k=>`<option value="${k}" ${selected===k?"selected":""}>${roleMeta[k].fa} / ${roleMeta[k].en}</option>`).join("");
+}
+function ideaStage(){
+  return `
+    <div class="mixgrid">
+      <div class="mixbox"><label>Primary Role</label><select onchange="state.primary=this.value;saveState()">${roleOptions(state.primary)}</select></div>
+      <div class="mixbox"><label>Supporting Role</label><select onchange="state.secondary=this.value;saveState()">${roleOptions(state.secondary)}</select></div>
+    </div>
+    <div class="question">
+      ${simpleScale("personalityFit",state.personalityFit,"سازگاری Role Mix با شخصیت و تمایل طبیعی تو","کم","زیاد","setPersonality")}
+      ${simpleScale("competenceFit",state.competenceFit,"آمادگی competence برای اجرای این Role Mix","کم","زیاد","setCompetence")}
+    </div>
+    <div class="question"><strong>فکر می‌کنی کارکنان از تو بیشتر کدام Role را انتظار دارند؟</strong>
+      <div class="choice-grid">
+        ${Object.keys(roleMeta).map(k=>`<button class="choice expect ${state.expectedRole===k?"active":""}" onclick="pick('.expect','${k}',this,x=>state.expectedRole=x)">${roleMeta[k].fa} / ${roleMeta[k].en}</button>`).join("")}
+      </div>
+    </div>
+    <div class="reflectbox"><b>Responsibility</b><p>تعریف Idea of Leadership مسئولیت خود رهبر است؛ نه HR، نه شرکت و نه کارکنان. اما انتظارهای دیگران باید در Reflection دیده شود.</p></div>`;
+}
+
+function sharedStage(){
+  return `
+    <div class="question">
+      ${simpleScale("sharedEmployee",state.sharedEmployee,"برداشت مشترک میان تو و کارکنان از Role تو","ابهام زیاد","هم‌فهمی بالا","setSharedEmployee")}
+      ${simpleScale("sharedSuperior",state.sharedSuperior,"میزان فضایی که مافوق برای اجرای Idea of Leadership تو می‌دهد","محدودیت زیاد","آزادی بالا","setSharedSuperior")}
+    </div>
+    <div class="question"><label>اگر بخواهی Role خودت را برای تیم در یک جمله روشن کنی، چه می‌گویی؟</label>
+      <textarea placeholder="مثلاً: در تصمیم‌های تخصصی از شما انتظار استقلال دارم، اما در ریسک‌های بالا خودم تصمیم نهایی را می‌گیرم..." oninput="state.communication=this.value;saveState()">${state.communication||""}</textarea>
+    </div>`;
 }
 
 function situationStage(){
-  const items=[
+  const situations=[
     ["idea","یک همکار ایده‌ای آورده"],
     ["complaint","یک شکایت یا مسئله داخلی داریم"],
     ["overload","یکی از افراد overloaded است"],
@@ -612,139 +811,74 @@ function situationStage(){
     ["other","موقعیت دیگری دارم"]
   ];
   return `
-    <div class="question"><strong>کدام موقعیت به مسئله امروزت نزدیک‌تر است؟</strong><div class="choice-grid">
-      ${items.map(([k,v])=>`<button class="choice sit ${state.situation===k?"active":""}" onclick="pick('.sit','${k}',this,x=>state.situation=x)">${v}</button>`).join("")}
+    <div class="question"><strong>یک Situation واقعی را انتخاب کن</strong><div class="choice-grid">
+      ${situations.map(([k,v])=>`<button class="choice sit ${state.situation===k?"active":""}" onclick="pick('.sit','${k}',this,x=>state.situation=x)">${v}</button>`).join("")}
     </div></div>
-    <div class="question"><label>در یک یا دو جمله، موقعیت را برای خودت روشن کن</label>
-      <textarea placeholder="مثلاً: یکی از اعضای باتجربه تیم با تصمیم جدید مخالف است..." oninput="state.note=this.value;saveState()">${state.note||""}</textarea>
-    </div>`;
+    <div class="question"><strong>برای همین Situation، حتی اگر با Primary Role فرق داشته باشد، کدام Role را آگاهانه انتخاب می‌کنی؟</strong><div class="choice-grid">
+      ${Object.keys(roleMeta).map(k=>`<button class="choice srole ${state.situationRole===k?"active":""}" onclick="pick('.srole','${k}',this,x=>state.situationRole=x)">${roleMeta[k].fa} / ${roleMeta[k].en}</button>`).join("")}
+    </div></div>
+    <div class="reflectbox"><b>Situational deviation</b><p>Primary Role یک default mode است؛ موقعیت خاص ممکن است Role دیگری را لازم کند.</p></div>`;
 }
 
-function slider(k,title,sub,left,right){
-  return `<div class="slider-row"><div><b>${title}</b><span>${sub}</span></div><div>
-    <input type="range" min="1" max="5" value="${state[k]}" oninput="state['${k}']=Number(this.value);saveState();this.nextElementSibling.querySelector('b').textContent=this.value">
-    <div class="scale-labels"><span>${left}</span><b>${state[k]}</b><span>${right}</span></div>
-  </div></div>`;
-}
-function contextStage(){
-  return `<div class="question"><strong>Quick Context Scan</strong>
-    ${slider("certainty","نیاز به قطعیت و direction","چقدر پاسخ، استاندارد یا تصمیم روشن لازم است؟","کم","زیاد")}
-    ${slider("selfReg","توان self-regulation","فرد یا تیم چقدر می‌تواند مستقل فکر کند و مسئولیت بپذیرد؟","کم","زیاد")}
-    ${slider("shared","نیاز به ownership مشترک","این مسئله چقدر به مشارکت و تصمیم جمعی نیاز دارد؟","کم","زیاد")}
-    ${slider("enable","نیاز به شرایط و منابع","چقدر مسئله ناشی از ساختار، منابع، زمان یا learning است؟","کم","زیاد")}
-  </div>`;
-}
-
-function roleScores(){
-  const s={
-    boss:Math.max(1,Math.round((state.certainty*1.35+(6-state.selfReg)*.65)/2)),
-    coach:Math.max(1,Math.round((state.selfReg*1.25+(6-state.certainty)*.35+1)/2)),
-    partner:Math.max(1,Math.round((state.shared*1.45+state.selfReg*.35)/1.8)),
-    enabler:Math.max(1,Math.round((state.enable*1.5+state.selfReg*.25)/1.75))
-  };
-  Object.keys(s).forEach(k=>s[k]=Math.min(5,s[k]));
-  return s;
-}
-function rankedRoles(){const s=roleScores();return Object.keys(s).sort((a,b)=>s[b]-s[a])}
-function roleCard(k,reco){
-  const r=roleMeta[k];
-  return `<div class="rolecard ${reco?"reco":""}">
-    ${reco?'<span class="tag">Signal قوی‌تر</span>':""}
-    <h3>${r.fa} <small style="font-size:10px;color:#82909d">/ ${r.en}</small></h3>
-    <div class="pronoun">${r.pronoun}</div>
-    <p>${r.desc}</p>
-  </div>`;
-}
-function options(sel){
-  return Object.keys(roleMeta).map(k=>`<option value="${k}" ${sel===k?"selected":""}>${roleMeta[k].fa} / ${roleMeta[k].en}</option>`).join("");
-}
-function roleStage(){
-  const scores=roleScores(),rank=rankedRoles();
-  if(!state.primary)state.primary=rank[0];
-  if(!state.secondary)state.secondary=rank[1];
-  return `
-    <div class="rolegrid">${["boss","coach","partner","enabler"].map(k=>roleCard(k,rank[0]===k)).join("")}</div>
-    <div class="rolebars">${["boss","coach","partner","enabler"].map(k=>`<div class="rolebar">
-      <b>${roleMeta[k].fa}</b><div class="track"><i style="width:${scores[k]*20}%"></i></div><span>${scores[k]}/5</span>
-    </div>`).join("")}</div>
-    <div class="mixgrid" style="margin-top:13px">
-      <div class="mixbox"><label>Role اصلی</label><select onchange="state.primary=this.value;saveState();render()">${options(state.primary)}</select></div>
-      <div class="mixbox"><label>Role پشتیبان</label><select onchange="state.secondary=this.value;saveState();render()">${options(state.secondary)}</select></div>
-    </div>
-    <div class="reflectbox"><b>این نتیجه «سبک تو» نیست.</b><p>Signalها فقط starting point هستند؛ Context واقعی و قضاوت تو مهم‌ترند.</p></div>`;
-}
-
-function actionFor(k){
-  const map={
-    boss:["جهت و انتظار را روشن کن","یک تصمیم یا استاندارد روشن بیان کن و مشخص کن چه چیزی انتظار می‌رود."],
-    coach:["یک سؤال قوی بپرس","از فرد بخواه راه‌حل، گزینه‌ها و منطق خودش را مطرح کند."],
-    partner:["مسئله را مشترک کن","افراد مرتبط را وارد گفت‌وگو کن و برای یک راه‌حل مشترک فضا بساز."],
-    enabler:["یک مانع را بردار","منبع، زمان، ساختار یا support لازم برای عملکرد بهتر را فراهم کن."]
-  };
-  return map[k];
-}
-function actionStage(){
-  const a1=actionFor(state.primary),a2=actionFor(state.secondary);
-  const items=[
-    ["primary",a1[0],a1[1]],
-    ["secondary",a2[0],a2[1]],
-    ["custom","Next Move خودم را طراحی می‌کنم","اگر تجربه و شواهدت اقدام دیگری را مناسب‌تر نشان می‌دهد، آن را انتخاب کن."]
+function toolsStage(){
+  const goals=[
+    ["expectations","شفاف‌کردن و توافق بر Performance Expectations"],
+    ["needs","شناخت و پاسخ به نیازهای کارکنان"],
+    ["reward","Reward برای عملکرد برجسته"],
+    ["poor","پرداختن به Poor Performance"],
+    ["feedback","دادن و گرفتن Feedback"],
+    ["learning","شفاف‌کردن و برنامه‌ریزی Learning"],
+    ["talent","شناسایی، پرورش و نگهداشت Top Talent"]
   ];
-  return `<div class="actioncards">
-    ${items.map(([k,t,d])=>`<button class="actioncard ${state.action===k?"choice active":""}" onclick="state.action='${k}';saveState();render()"><b>${t}</b><span>${d}</span></button>`).join("")}
-  </div>`;
+  return `
+    <div class="question"><strong>Expected Benefit تو الان چیست؟</strong><div class="choice-grid">
+      ${goals.map(([k,v])=>`<button class="choice toolgoal ${state.toolGoal===k?"active":""}" onclick="pick('.toolgoal','${k}',this,x=>state.toolGoal=x)">${v}</button>`).join("")}
+    </div></div>
+    <div class="reflectbox"><b>From Benefit to Tool</b><p>ابزار را از روی عادت انتخاب نکن؛ اول Benefit را روشن کن، بعد ببین کدام practice با Role Mix تو سازگار است.</p></div>`;
 }
 
 function reflectionStage(){
-  return `<div class="question"><label>بعد از اقدام، دنبال چه اثری می‌گردی؟</label>
-    <textarea placeholder="مثلاً: می‌خواهم ببینم آیا مسئولیت‌پذیری فرد بیشتر می‌شود و کیفیت تصمیم بهتر می‌شود..." oninput="state.reflection=this.value;saveState()">${state.reflection||""}</textarea>
-  </div>
-  <div class="reflectbox"><b>Reflection Prompt</b><p>اثر رفتار من روی مسئولیت‌پذیری، کیفیت تصمیم، یادگیری و عملکرد تیم چه بود؟</p></div>`;
+  return `
+    <div class="question"><label>بعد از اقدام، چه چیزی را می‌خواهی بررسی کنی؟</label>
+      <textarea placeholder="اثر رفتار من روی مسئولیت‌پذیری، کیفیت تصمیم، یادگیری، اعتماد یا عملکرد چه بود؟ دفعه بعد چه چیزی را تغییر می‌دهم؟" oninput="state.reflection=this.value;saveState()">${state.reflection||""}</textarea>
+    </div>
+    <div class="reflectbox"><b>Continuous Reflection</b><p>Reflection در سطح انتزاعی سخت است؛ آن را به یک leadership situation مشخص وصل کن و در طول زمان تکرار کن.</p></div>`;
 }
 
 function roleName(k){return roleMeta[k]?.fa||"—"}
-function situationName(){
-  const m={idea:"ایده جدید",complaint:"شکایت / مسئله داخلی",overload:"Overload",decision:"تصمیم دشوار",conflict:"تعارض تیمی",other:"موقعیت دیگر"};
-  return m[state.situation]||"—";
+function goalName(){
+  const m={expectations:"Performance Expectations",needs:"Employee Needs",reward:"Reward",poor:"Poor Performance",feedback:"Feedback",learning:"Learning",talent:"Top Talent"};
+  return m[state.toolGoal]||"—";
 }
-function strongestSignal(){
-  return [["قطعیت و direction",state.certainty],["self-regulation",state.selfReg],["ownership مشترک",state.shared],["شرایط و منابع",state.enable]]
-    .sort((a,b)=>b[1]-a[1])[0][0];
-}
-function chosenAction(){
-  if(state.action==="primary")return actionFor(state.primary)[0];
-  if(state.action==="secondary")return actionFor(state.secondary)[0];
-  if(state.action==="custom")return "اقدام شخصی‌سازی‌شده";
-  return "—";
-}
-function resultStage(){
+function snapshotStage(){
   return `<div class="result">
-    <h3>Leadership Reflection Snapshot</h3>
-    <div class="sub">یک hypothesis برای اقدام و یادگیری</div>
+    <h3>Leadership Model Snapshot</h3>
+    <div class="sub">خروجی برای Reflection، نه scoring</div>
     <div class="resultgrid">
-      <div class="resultitem"><label>Self</label><b>${state.identity.role||"—"} · ${state.identity.experience||"—"}</b></div>
-      <div class="resultitem"><label>Situation</label><b>${situationName()}</b></div>
-      <div class="resultitem"><label>Role Mix</label><b>${roleName(state.primary)} + ${roleName(state.secondary)}</b></div>
-      <div class="resultitem"><label>Strongest Context Signal</label><b>${strongestSignal()}</b></div>
-      <div class="resultitem"><label>Next Move</label><b>${chosenAction()}</b></div>
-      <div class="resultitem"><label>Reflection Focus</label><b>${state.reflection ? "تعریف شده" : "هنوز تعریف نشده"}</b></div>
+      <div class="resultitem"><label>Primary Role</label><b>${roleName(state.primary)}</b></div>
+      <div class="resultitem"><label>Supporting Role</label><b>${roleName(state.secondary)}</b></div>
+      <div class="resultitem"><label>Role in Current Situation</label><b>${roleName(state.situationRole)}</b></div>
+      <div class="resultitem"><label>Shared Idea with Employees</label><b>${state.sharedEmployee}/10</b></div>
+      <div class="resultitem"><label>Superior Allows It</label><b>${state.sharedSuperior}/10</b></div>
+      <div class="resultitem"><label>Current Tool Benefit</label><b>${goalName()}</b></div>
     </div>
     <div class="idea" style="margin-top:12px">
       <b>Idea of Leadership — draft</b><br>
-      در این موقعیت، می‌خواهم عمدتاً در نقش «${roleName(state.primary)}» عمل کنم و نقش «${roleName(state.secondary)}» را به‌عنوان پشتیبان نگه دارم؛ سپس اثر رفتارم را ببینم و در صورت نیاز Role Mix را تنظیم کنم.
+      در Context فعلی، Role Mix من «${roleName(state.primary)} + ${roleName(state.secondary)}» است؛
+      اما در Situation مشخص‌شده آگاهانه به «${roleName(state.situationRole)}» متمایل می‌شوم.
+      این تعریف باید با کارکنان روشن شود، با فضای مافوق سازگار باشد و با ابزارهای مناسب در عمل ترجمه شود.
     </div>
   </div>`;
 }
 
 function bodyFor(i){
-  return [selfStage,assumptionStage,situationStage,contextStage,roleStage,actionStage,reflectionStage,resultStage][i]();
+  return [orientationStage,contextStage,rolesStage,ideaStage,sharedStage,situationStage,toolsStage,reflectionStage,snapshotStage][i]();
 }
 function validate(){
-  if(current===0 && (!state.identity.role||!state.identity.experience||!state.identity.team)){alert("سه انتخاب کوتاه این مرحله را کامل کن.");return false}
-  if(current===1 && !state.assumption){alert("یک باور را انتخاب کن.");return false}
-  if(current===2 && !state.situation){alert("یک موقعیت واقعی را انتخاب کن.");return false}
-  if(current===4 && (!state.primary||!state.secondary)){alert("Role اصلی و پشتیبان را انتخاب کن.");return false}
-  if(current===5 && !state.action){alert("یک Next Move را انتخاب کن.");return false}
+  if(current===0 && (!state.identity.role||!state.identity.experience||!state.identity.environment||!state.assumption)){alert("چهار انتخاب کوتاه این مرحله را کامل کن.");return false}
+  if(current===3 && (!state.primary||!state.secondary||!state.expectedRole)){alert("Primary Role، Supporting Role و انتظار کارکنان را مشخص کن.");return false}
+  if(current===5 && (!state.situation||!state.situationRole)){alert("Situation و Role انتخابی در آن را مشخص کن.");return false}
+  if(current===6 && !state.toolGoal){alert("Expected Benefit را انتخاب کن.");return false}
   return true;
 }
 function render(){
@@ -758,11 +892,9 @@ function render(){
   document.getElementById("bar").style.width=((current+1)/stages.length*100)+"%";
   document.getElementById("stageBody").innerHTML=bodyFor(current);
   document.getElementById("prevBtn").style.visibility=current===0?"hidden":"visible";
-  document.getElementById("nextBtn").textContent=current===stages.length-1?"شروع موقعیت جدید":"مرحله بعد";
+  document.getElementById("nextBtn").textContent=current===stages.length-1?"شروع Context جدید":"مرحله بعد";
   document.getElementById("nextBtn").onclick=current===stages.length-1?resetJourney:nextStage;
-
-  const list=document.getElementById("pathList");
-  list.innerHTML="";
+  const list=document.getElementById("pathList");list.innerHTML="";
   stages.forEach((x,i)=>{
     const d=document.createElement("div");
     d.className="pathitem "+(i===current?"current":i<current?"done":"");
@@ -779,13 +911,10 @@ function prevStage(){
   if(current>0){current--;render();window.scrollTo({top:0,behavior:"smooth"})}
 }
 function resetJourney(){
-  state.identity={role:"",experience:"",team:""};
-  state.assumption="";state.situation="";state.note="";
-  state.certainty=3;state.selfReg=3;state.shared=3;state.enable=3;
-  state.primary="";state.secondary="";state.action="";state.reflection="";
-  localStorage.removeItem("reflectiveLeaderV06");
-  current=0;render();window.scrollTo({top:0,behavior:"smooth"});
+  localStorage.removeItem("reflectiveLeaderV07");
+  location.reload();
 }
 </script>
+
 </body>
 </html>
