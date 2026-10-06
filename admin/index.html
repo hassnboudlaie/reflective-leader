@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reflective Leader — Admin Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14243a;--ink:#263440;--muted:#6c7882;--paper:#f4efe7;--line:#e4ddd3;--gold:#d5aa69;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:"Vazirmatn",Tahoma,sans-serif;background:#e9e5de;color:var(--ink)}
+.shell{display:grid;grid-template-columns:360px 1fr;min-height:100vh}
+.panel{background:#fff;border-left:1px solid var(--line);padding:20px;position:sticky;top:0;height:100vh;overflow:auto}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
+.brand h1{font-size:19px;color:var(--navy);margin:0}.badge{font-size:11px;border-radius:999px;padding:5px 8px;background:#f7ead5;color:#805f2f;font-weight:800}
+.note{font-size:12px;line-height:1.8;color:#6a7580;background:#f7f5f1;border:1px solid var(--line);padding:10px 11px;border-radius:12px;margin-bottom:14px}
+.group{border-top:1px solid var(--line);padding-top:15px;margin-top:15px}.group:first-of-type{border-top:0;margin-top:0}
+.group h2{font-size:14px;color:var(--navy);margin:0 0 10px}
+.field{margin:10px 0}.field label{display:block;font-size:12px;font-weight:800;color:#475765;margin-bottom:5px}
+.field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 11px;font:inherit;font-size:13px;outline:none;background:#fff}
+.field textarea{min-height:74px;resize:vertical}.field input:focus,.field textarea:focus{border-color:#c9a36b;box-shadow:0 0 0 3px rgba(201,163,107,.10)}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+button{font:inherit;cursor:pointer}.btn{border-radius:11px;min-height:42px;padding:9px 10px;font-size:12px;font-weight:800}
+.primary{background:var(--navy);color:#fff;border:1px solid var(--navy)}.secondary{background:#fff;color:var(--navy);border:1px solid var(--line)}.danger{background:#fff5f2;color:#8f4437;border:1px solid #efd5ce}
+.status{display:none;margin-top:10px;padding:9px 10px;border-radius:10px;background:#edf5f2;color:#527066;font-size:12px}.status.show{display:block}
+.preview{padding:14px;height:100vh}.frame-wrap{height:100%;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(23,36,58,.13);border:1px solid rgba(255,255,255,.8)}
+iframe{width:100%;height:100%;border:0;background:#fff}
+.topbar{display:none}
+@media(max-width:900px){
+ .shell{display:block}.panel{position:relative;height:auto;border-left:0;border-bottom:1px solid var(--line)}
+ .preview{height:76vh;padding:10px}.actions{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="panel">
+    <div class="brand">
+      <h1>ویرایشگر ادمین</h1>
+      <span class="badge">ADMIN PREVIEW</span>
+    </div>
+    <div class="note">
+      این نسخه برای مدیریت محتوای اپ است. تغییرات به‌صورت Draft روی مرورگر ادمین ذخیره می‌شوند؛ انتشار مرکزی برای همه کاربران در مرحله بعد به Login/Backend متصل می‌شود.
+    </div>
+
+    <div class="group">
+      <h2>صفحه اول</h2>
+      <div class="field"><label>عنوان اصلی</label><input id="heroTitle" value="رهبر بازتابی"></div>
+      <div class="field"><label>Tagline</label><textarea id="heroTag">رهبری خوب یک نسخه ثابت نیست؛ یک انتخاب آگاهانه در Context درست است.</textarea></div>
+      <div class="field"><label>توضیح Hero</label><textarea id="heroDesc">این اپ به تو کمک می‌کند Context را ببینی، چهار Role را بفهمی، Idea of Leadership خودت را تعریف کنی و قبل و بعد از اقدام، آگاهانه Reflection انجام بدهی.</textarea></div>
+      <div class="field"><label>CTA اصلی</label><input id="mainCta" value="شروع مسیر رهبری من"></div>
+      <div class="field"><label>CTA دوم</label><input id="secondCta" value="مدل را در یک نگاه ببین"></div>
+    </div>
+
+    <div class="group">
+      <h2>سه اصل صفحه اول</h2>
+      <div class="field"><label>کارت ۱ — عنوان</label><input id="card1Title" value="اول، ذهن خودت را ببین"></div>
+      <div class="field"><label>کارت ۱ — توضیح</label><textarea id="card1Desc">نقش فعلی، تجربه و چند پیش‌فرض مهم تو ثبت می‌شود؛ فقط برای framing و personalization.</textarea></div>
+      <div class="field"><label>کارت ۲ — عنوان</label><input id="card2Title" value="بعد، Context را بخوان"></div>
+      <div class="field"><label>کارت ۲ — توضیح</label><textarea id="card2Desc">Tasks، Employees، Team و Organization را جداگانه می‌بینی و Today را با Future مقایسه می‌کنی.</textarea></div>
+      <div class="field"><label>کارت ۳ — عنوان</label><input id="card3Title" value="Role Mix را آگاهانه بساز"></div>
+      <div class="field"><label>کارت ۳ — توضیح</label><textarea id="card3Desc">Role را الگوریتم انتخاب نمی‌کند؛ تو با توجه به Context، شخصیت، competence و رابطه آن را تعریف و بازنگری می‌کنی.</textarea></div>
+    </div>
+
+    <div class="group">
+      <h2>تعرفه‌های کوچینگ</h2>
+      <div class="field"><label>جلسه تشخیصی ۳۰ دقیقه‌ای</label><input id="price30" placeholder="مثلاً: ۲,۵۰۰,۰۰۰ تومان"></div>
+      <div class="field"><label>جلسه کوچینگ ۶۰ دقیقه‌ای</label><input id="price60" placeholder="مثلاً: ۴,۵۰۰,۰۰۰ تومان"></div>
+      <div class="field"><label>بسته ۴ جلسه‌ای</label><input id="price4" placeholder="مثلاً: ۱۶,۰۰۰,۰۰۰ تومان"></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" onclick="applyEdits()">اعمال در Preview</button>
+      <button class="btn secondary" onclick="saveDraft()">ذخیره Draft</button>
+      <button class="btn secondary" onclick="downloadJSON()">خروجی JSON</button>
+      <button class="btn secondary" onclick="downloadHTML()">خروجی HTML</button>
+      <button class="btn danger" onclick="resetDraft()">بازنشانی</button>
+      <button class="btn secondary" onclick="window.open('../','_blank')">نسخه عمومی</button>
+    </div>
+    <div class="status" id="status">Draft ذخیره شد.</div>
+  </aside>
+
+  <main class="preview">
+    <div class="frame-wrap"><iframe id="preview" src="../?admin-preview=1"></iframe></div>
+  </main>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const fields=["heroTitle","heroTag","heroDesc","mainCta","secondCta","card1Title","card1Desc","card2Title","card2Desc","card3Title","card3Desc","price30","price60","price4"];
+
+function dataFromForm(){
+  const x={};fields.forEach(k=>x[k]=$(k).value.trim());return x;
+}
+function fillForm(x){
+  if(!x)return;fields.forEach(k=>{if(x[k]!==undefined)$(k).value=x[k]});
+}
+function getDoc(){return $("preview").contentDocument}
+
+function setText(el,txt){
+  if(!el||!txt)return;
+  el.textContent=txt;
+}
+
+function applyEdits(){
+  const d=dataFromForm(),doc=getDoc(); if(!doc)return;
+  const h1=doc.querySelector(".hero-copy-premium h1");
+  if(h1){
+    const em=h1.querySelector("em");
+    h1.childNodes.forEach(n=>{if(n.nodeType===3)n.remove()});
+    h1.appendChild(doc.createTextNode(d.heroTitle||"رهبر بازتابی"));
+    if(em)h1.insertBefore(em,h1.firstChild);
+  }
+  setText(doc.querySelector(".hero-copy-premium .hero-tag"),d.heroTag);
+  setText(doc.querySelector(".hero-copy-premium .hero-desc"),d.heroDesc);
+  setText(doc.querySelector(".premium-actions .main-cta"),d.mainCta);
+  setText(doc.querySelector(".premium-actions .secondary-cta"),d.secondCta);
+
+  const cards=doc.querySelectorAll(".principle-card");
+  const vals=[
+    [d.card1Title,d.card1Desc],
+    [d.card2Title,d.card2Desc],
+    [d.card3Title,d.card3Desc]
+  ];
+  cards.forEach((c,i)=>{
+    if(!vals[i])return;
+    setText(c.querySelector("h3"),vals[i][0]);
+    setText(c.querySelector("p"),vals[i][1]);
+  });
+
+  const prices=doc.querySelectorAll(".price-card strong");
+  [d.price30,d.price60,d.price4].forEach((v,i)=>{
+    if(prices[i]&&v)prices[i].textContent="تعرفه: "+v;
+  });
+  showStatus("تغییرات در Preview اعمال شد.");
+}
+
+function saveDraft(){
+  const d=dataFromForm();
+  localStorage.setItem("reflectiveLeaderAdminDraft",JSON.stringify(d));
+  applyEdits();showStatus("Draft روی این مرورگر ذخیره شد.");
+}
+function resetDraft(){
+  localStorage.removeItem("reflectiveLeaderAdminDraft");
+  location.reload();
+}
+function showStatus(t){
+  const s=$("status");s.textContent=t;s.classList.add("show");setTimeout(()=>s.classList.remove("show"),2200);
+}
+function downloadJSON(){
+  const blob=new Blob([JSON.stringify(dataFromForm(),null,2)],{type:"application/json;charset=utf-8"});
+  saveFile(blob,"reflective-leader-admin-content.json");
+}
+function downloadHTML(){
+  applyEdits();
+  const doc=getDoc();
+  const html="<!doctype html>\n"+doc.documentElement.outerHTML;
+  const blob=new Blob([html],{type:"text/html;charset=utf-8"});
+  saveFile(blob,"reflective-leader-edited.html");
+}
+function saveFile(blob,name){
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+}
+$("preview").addEventListener("load",()=>{
+  const saved=JSON.parse(localStorage.getItem("reflectiveLeaderAdminDraft")||"null");
+  if(saved){fillForm(saved);setTimeout(applyEdits,120)}
+});
+const saved=JSON.parse(localStorage.getItem("reflectiveLeaderAdminDraft")||"null");
+if(saved)fillForm(saved);
+</script>
+</body>
+</html>
