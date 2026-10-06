@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#17243a">
 <title>رهبر بازتابی | Reflective Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#17243a;--navy2:#263d5a;--ink:#26323d;--muted:#6e7a85;
@@ -424,6 +427,227 @@ textarea{font-size:15px;min-height:105px}
   .account-btn{font-size:13px!important;padding:8px 10px!important}
 }
 
+
+/* === PREMIUM HOME REDESIGN v0.9 === */
+body{font-family:"Vazirmatn",Tahoma,"Segoe UI",Arial,sans-serif}
+#landing{background:#f4efe7;min-height:100vh}
+#landing .topnav{
+  background:rgba(244,239,231,.88);border-bottom:1px solid rgba(31,46,64,.08);
+  backdrop-filter:blur(18px)
+}
+#landing .navrow{height:78px}
+#landing .brand b{font-size:18px;letter-spacing:-.02em}
+#landing .brand span{font-size:11px;letter-spacing:.06em;color:#7d8891}
+#landing .mark{
+  background:linear-gradient(145deg,#132238,#304f68);
+  border:1px solid rgba(255,255,255,.22)
+}
+#landing .nav-actions{gap:10px}
+#landing .nav-actions button{
+  font-size:13px;border-radius:12px;padding:10px 14px
+}
+#landing .nav-actions .start{
+  background:#18273b;color:#fff;box-shadow:0 8px 22px rgba(24,39,59,.14)
+}
+#landing .account-btn{background:rgba(255,255,255,.68)!important}
+
+.premium-hero{padding:28px 0 26px}
+.hero-shell{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 16% 14%,rgba(202,157,86,.20),transparent 27%),
+    radial-gradient(circle at 85% 82%,rgba(107,137,129,.16),transparent 26%),
+    linear-gradient(145deg,#101c2e 0%,#182a40 57%,#21384d 100%);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:32px;min-height:610px;
+  box-shadow:0 32px 80px rgba(30,42,54,.18);
+  display:grid;grid-template-columns:1.02fr .98fr;align-items:center;
+  gap:38px;padding:50px 52px
+}
+.hero-shell:before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:42px 42px;mask-image:linear-gradient(to left,transparent,black 20%,black 80%,transparent)
+}
+.hero-shell>*{position:relative;z-index:2}
+.hero-copy-premium{color:#fff}
+.hero-overline{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px
+}
+.hero-overline span{
+  font-size:11px;letter-spacing:.08em;border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);color:#dbe3e9;
+  padding:7px 10px;border-radius:999px
+}
+.hero-overline .accent{color:#efd6ad;border-color:rgba(213,170,100,.36);background:rgba(213,170,100,.10)}
+.hero-copy-premium h1{
+  color:#fff;font-size:clamp(50px,6.3vw,78px);line-height:1.09;letter-spacing:-.045em;
+  margin:0 0 16px;font-weight:800
+}
+.hero-copy-premium h1 em{
+  display:block;font-style:normal;font-size:.24em;letter-spacing:.18em;color:#c8d3db;
+  margin-bottom:12px;font-weight:600;direction:ltr;text-align:right
+}
+.hero-copy-premium .hero-tag{
+  font-size:23px;line-height:1.65;font-weight:700;color:#f2eee8;margin-bottom:14px;max-width:560px
+}
+.hero-copy-premium .hero-desc{
+  font-size:16px;line-height:2;color:#c5d0d7;max-width:620px;margin:0
+}
+.hero-copy-premium .hero-desc b{color:#fff;font-weight:700}
+.premium-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.premium-actions .main-cta{
+  border:0;background:#d7aa68;color:#142236;min-height:54px;padding:13px 20px;
+  border-radius:14px;font-size:15px;font-weight:800;
+  box-shadow:0 10px 28px rgba(215,170,104,.20)
+}
+.premium-actions .secondary-cta{
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);
+  color:#fff;min-height:54px;padding:13px 18px;border-radius:14px;font-size:14px;font-weight:700
+}
+.hero-trust{
+  margin-top:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font-size:12px;color:#9fb0bc
+}
+.hero-trust i{width:5px;height:5px;border-radius:50%;background:#d7aa68;display:inline-block}
+
+.hero-visual-premium{
+  min-height:490px;display:flex;align-items:center;justify-content:center;position:relative
+}
+.reflective-stage{
+  width:min(460px,100%);aspect-ratio:1/1;position:relative;display:flex;align-items:center;justify-content:center
+}
+.reflective-stage:before{
+  content:"";position:absolute;inset:5%;
+  border:1px solid rgba(255,255,255,.10);border-radius:50%
+}
+.reflective-stage:after{
+  content:"";position:absolute;inset:17%;
+  border:1px solid rgba(213,170,104,.23);border-radius:50%
+}
+.core-mirror{
+  width:48%;aspect-ratio:1;border-radius:50%;
+  background:
+    radial-gradient(circle at 34% 28%,rgba(255,255,255,.95),rgba(238,237,228,.78) 25%,rgba(151,177,174,.38) 61%,rgba(255,255,255,.09) 100%);
+  border:1px solid rgba(255,255,255,.60);
+  box-shadow:inset 0 0 40px rgba(255,255,255,.28),0 24px 70px rgba(0,0,0,.18);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:3
+}
+.core-mirror small{font-size:11px;letter-spacing:.14em;color:#657581;direction:ltr}
+.core-mirror strong{font-size:26px;color:#182a40;letter-spacing:.04em;direction:ltr;margin:3px 0}
+.core-mirror span{font-size:11px;color:#536773}
+.role-orb{
+  position:absolute;z-index:4;min-width:108px;padding:10px 13px;border-radius:14px;
+  border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);
+  backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.12)
+}
+.role-orb b{display:block;color:#fff;font-size:14px;direction:ltr;text-align:center}
+.role-orb span{display:block;color:#aebbc4;font-size:10px;text-align:center;margin-top:1px}
+.role-boss{right:7%;top:13%}.role-coach{left:6%;top:18%}.role-partner{right:6%;bottom:14%}.role-enabler{left:7%;bottom:13%}
+.context-ring-label{
+  position:absolute;z-index:5;top:3%;left:50%;transform:translateX(-50%);
+  font-size:10px;letter-spacing:.14em;color:#d7aa68;direction:ltr
+}
+.reflective-prompt{
+  position:absolute;z-index:5;bottom:-8px;right:10%;left:10%;
+  background:rgba(10,20,33,.66);border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(16px);padding:13px 15px;border-radius:15px;text-align:center
+}
+.reflective-prompt b{display:block;color:#fff;font-size:14px}
+.reflective-prompt span{display:block;color:#aebbc4;font-size:11px;margin-top:2px}
+
+.home-strip{padding:10px 0 18px}
+.journey-strip{
+  background:#fff;border:1px solid #e6ddd1;border-radius:20px;padding:13px 15px;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:8px;box-shadow:0 10px 30px rgba(31,46,64,.05)
+}
+.journey-node{padding:10px 12px;border-left:1px solid #eee7dc}
+.journey-node:last-child{border-left:0}
+.journey-node small{display:block;color:#a47c43;font-size:10px;letter-spacing:.05em}
+.journey-node b{display:block;color:#1e3045;font-size:14px;margin-top:3px}
+.journey-node span{display:block;color:#6e7a85;font-size:11px;margin-top:2px}
+
+.home-principles{padding:30px 0 64px}
+.home-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:18px}
+.home-heading div:first-child{max-width:680px}
+.home-heading small{display:block;font-size:11px;color:#9a7745;letter-spacing:.08em}
+.home-heading h2{font-size:30px;color:#17283d;margin:4px 0 4px;letter-spacing:-.02em}
+.home-heading p{font-size:14px;color:#66727c;margin:0}
+.principle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.principle-card{
+  position:relative;background:#fff;border:1px solid #e5ddd2;border-radius:20px;padding:20px;
+  min-height:210px;overflow:hidden;transition:.2s
+}
+.principle-card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(31,46,64,.08)}
+.principle-card:after{
+  content:"";position:absolute;width:100px;height:100px;border-radius:50%;
+  background:radial-gradient(circle,rgba(213,170,104,.13),transparent 65%);
+  left:-18px;bottom:-24px
+}
+.principle-card .num{font-size:11px;color:#ad8550;letter-spacing:.08em}
+.principle-card h3{font-size:19px;color:#17283d;margin:16px 0 7px}
+.principle-card p{font-size:13px;color:#68747e;line-height:1.85;margin:0}
+.principle-card .key{margin-top:14px;font-size:12px;font-weight:700;color:#4f6e65}
+
+.model-section{
+  background:#e9e2d8;border-top:1px solid #ddd3c5;border-bottom:1px solid #ddd3c5;
+  padding:44px 0
+}
+.model-box{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center
+}
+.model-box h2{font-size:28px;color:#17283d;margin:0 0 8px}
+.model-box p{font-size:14px;color:#5f6b75;line-height:1.9;margin:0}
+.model-flow{
+  background:#17283d;border-radius:18px;padding:17px;display:grid;gap:8px;
+  box-shadow:0 18px 38px rgba(23,40,61,.12)
+}
+.model-flow div{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-bottom:1px solid rgba(255,255,255,.08);padding:9px 4px
+}
+.model-flow div:last-child{border-bottom:0}
+.model-flow b{font-size:13px;color:#fff}
+.model-flow span{font-size:11px;color:#9fb0bc;direction:ltr}
+.model-cta{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.model-cta .btn{min-height:50px}
+#landing footer{font-size:11px;color:#79838c;padding:24px 0 32px}
+
+@media(max-width:900px){
+  .hero-shell{grid-template-columns:1fr;padding:40px 34px;gap:12px}
+  .hero-visual-premium{min-height:400px}
+  .journey-strip{grid-template-columns:1fr 1fr}
+  .journey-node{border-left:0;border-bottom:1px solid #eee7dc}
+  .principle-grid{grid-template-columns:1fr 1fr}
+  .model-box{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  #landing .navrow{height:68px}
+  #landing .nav-actions button:not(.start):not(.account-btn){display:none}
+  #landing .nav-actions .start{display:none}
+  .premium-hero{padding:14px 0 16px}
+  .hero-shell{padding:30px 20px 24px;border-radius:22px;min-height:auto}
+  .hero-copy-premium h1{font-size:45px}
+  .hero-copy-premium h1 em{font-size:.25em}
+  .hero-copy-premium .hero-tag{font-size:19px}
+  .hero-copy-premium .hero-desc{font-size:15px;line-height:1.9}
+  .premium-actions{display:grid;grid-template-columns:1fr}
+  .premium-actions button{width:100%}
+  .hero-visual-premium{min-height:360px}
+  .reflective-stage{width:100%}
+  .role-orb{min-width:88px;padding:8px 9px}
+  .role-orb b{font-size:12px}.role-orb span{font-size:9px}
+  .reflective-prompt{right:2%;left:2%}
+  .journey-strip{grid-template-columns:1fr}
+  .home-heading{display:block}
+  .home-heading h2{font-size:25px}
+  .principle-grid{grid-template-columns:1fr}
+  .principle-card{min-height:auto}
+  .model-box h2{font-size:24px}
+}
+
 </style>
 </head>
 <body>
@@ -433,137 +657,141 @@ textarea{font-size:15px;min-height:105px}
     <div class="wrap navrow">
       <div class="brand">
         <div class="mark"></div>
-        <div><b>رهبر بازتابی</b><span>Reflective Leader</span></div>
+        <div><b>رهبر بازتابی</b><span>REFLECTIVE LEADER</span></div>
       </div>
       <div class="nav-actions">
-        <button onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'})">این اپ چگونه کار می‌کند؟</button>
+        <button onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'})">منطق اپ</button>
         <button class="account-btn" onclick="openLogin()"><span class="account-dot"></span>ورود / حساب من</button>
         <button class="start" onclick="startJourney()">شروع مسیر</button>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">REFLECTIVE LEADER</div>
-        <h1><small>CONTEXT-DRIVEN LEADERSHIP</small>رهبر بازتابی</h1>
-        <div class="hero-tagline">در هر موقعیت، نقش درست را آگاهانه انتخاب کن.</div>
-        <p>
-          یک companion برای تصمیم‌های واقعی رهبری؛ نه یک کتاب الکترونیکی و نه یک تست سبک.
-          از <b>خودت و پیش‌فرض‌هایت</b> شروع می‌کنی، بعد <b>موقعیت و Context</b> را می‌بینی
-          و در نهایت یک <b>Role Mix</b> قابل اقدام می‌سازی.
-        </p>
-        <div class="hero-actions">
-          <button class="btn gold" onclick="startJourney()">شروع مسیر رهبری من</button>
-          <button class="btn ghost" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'})">اول منطقش را ببین</button>
-        </div>
-        <div class="hero-note">Based on the leadership model in Armin Trost's <span class="en">The Reflective Leader</span></div>
-      </div>
+  <section class="premium-hero">
+    <div class="wrap">
+      <div class="hero-shell">
+        <div class="hero-copy-premium">
+          <div class="hero-overline">
+            <span class="accent">CONTEXT FIRST</span>
+            <span>REFLECT BEFORE YOU ACT</span>
+          </div>
 
-      <div class="hero-art">
-        <div class="concept-art">
-          <svg viewBox="0 0 720 720" role="img" aria-label="رهبر در حال بازتاب، تحلیل زمینه و انتخاب نقش">
-            <defs>
-              <radialGradient id="bg" cx="27%" cy="24%" r="86%">
-                <stop offset="0" stop-color="#f2ddb7"/>
-                <stop offset=".36" stop-color="#e2e9e6"/>
-                <stop offset="1" stop-color="#c6d3ce"/>
-              </radialGradient>
-              <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
-                <stop offset="1" stop-color="#cbd9d4" stop-opacity=".68"/>
-              </linearGradient>
-              <filter id="s" x="-40%" y="-40%" width="180%" height="180%">
-                <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#17243a" flood-opacity=".15"/>
-              </filter>
-            </defs>
-            <rect width="720" height="720" fill="url(#bg)"/>
-            <circle cx="250" cy="315" r="180" fill="url(#glass)" stroke="#fff" stroke-opacity=".84" stroke-width="3" filter="url(#s)"/>
-            <circle cx="250" cy="315" r="134" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2"/>
-            <circle cx="250" cy="315" r="88" fill="none" stroke="#c7934a" stroke-opacity=".62" stroke-width="2"/>
-            <text x="250" y="302" text-anchor="middle" fill="#17243a" font-size="26" font-weight="700" font-family="Arial">CONTEXT</text>
-            <text x="250" y="330" text-anchor="middle" fill="#556571" font-size="15" font-family="Arial">Reflect before you act</text>
+          <h1><em>CONTEXT-DRIVEN LEADERSHIP</em>رهبر بازتابی</h1>
 
-            <g font-family="Arial" font-size="14" font-weight="700">
-              <rect x="80" y="112" width="118" height="44" rx="15" fill="#fff" fill-opacity=".92"/>
-              <text x="139" y="140" text-anchor="middle" fill="#17243a">BOSS</text>
-              <rect x="302" y="112" width="118" height="44" rx="15" fill="#fff" fill-opacity=".92"/>
-              <text x="361" y="140" text-anchor="middle" fill="#17243a">COACH</text>
-              <rect x="74" y="482" width="130" height="44" rx="15" fill="#fff" fill-opacity=".92"/>
-              <text x="139" y="510" text-anchor="middle" fill="#17243a">PARTNER</text>
-              <rect x="302" y="482" width="130" height="44" rx="15" fill="#fff" fill-opacity=".92"/>
-              <text x="367" y="510" text-anchor="middle" fill="#17243a">ENABLER</text>
-            </g>
+          <div class="hero-tag">رهبری خوب یک نسخه ثابت نیست؛ یک انتخاب آگاهانه در Context درست است.</div>
 
-            <path d="M162 156 C182 194 200 220 218 239" fill="none" stroke="#789087" stroke-width="2"/>
-            <path d="M342 156 C326 193 310 218 292 239" fill="none" stroke="#789087" stroke-width="2"/>
-            <path d="M164 482 C185 452 203 430 220 409" fill="none" stroke="#789087" stroke-width="2"/>
-            <path d="M342 482 C326 453 310 432 292 409" fill="none" stroke="#789087" stroke-width="2"/>
+          <p class="hero-desc">
+            این اپ به تو کمک می‌کند <b>Context</b> را ببینی، چهار Role را بفهمی،
+            <b>Idea of Leadership</b> خودت را تعریف کنی و قبل و بعد از اقدام، آگاهانه Reflection انجام بدهی.
+          </p>
 
-            <g transform="translate(450,250)">
-              <ellipse cx="92" cy="287" rx="102" ry="28" fill="#263a58" fill-opacity=".15"/>
-              <circle cx="96" cy="76" r="37" fill="#17243a"/>
-              <path d="M52 157 C55 112 73 92 98 92 C127 92 149 118 156 163 L175 298 L32 298 Z" fill="#1a2b40"/>
-              <path d="M69 144 C38 171 28 214 20 258" fill="none" stroke="#1a2b40" stroke-width="24" stroke-linecap="round"/>
-              <path d="M134 144 C165 178 179 218 190 258" fill="none" stroke="#1a2b40" stroke-width="24" stroke-linecap="round"/>
-              <path d="M68 298 C56 333 43 364 34 400" fill="none" stroke="#17243a" stroke-width="26" stroke-linecap="round"/>
-              <path d="M138 298 C153 334 169 366 185 400" fill="none" stroke="#17243a" stroke-width="26" stroke-linecap="round"/>
-            </g>
+          <div class="premium-actions">
+            <button class="main-cta" onclick="startJourney()">شروع مسیر رهبری من</button>
+            <button class="secondary-cta" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'})">مدل را در یک نگاه ببین</button>
+          </div>
 
-            <path d="M433 327 C397 326 365 322 333 318" fill="none" stroke="#c7934a" stroke-width="3" stroke-dasharray="7 8"/>
-            <circle cx="433" cy="327" r="6" fill="#c7934a"/>
-            <circle cx="333" cy="318" r="6" fill="#c7934a"/>
-
-            <text x="520" y="120" fill="#435564" font-size="14" font-family="Arial">SELF</text>
-            <text x="520" y="143" fill="#435564" font-size="14" font-family="Arial">SITUATION</text>
-            <text x="520" y="166" fill="#435564" font-size="14" font-family="Arial">CONTEXT</text>
-            <text x="520" y="189" fill="#435564" font-size="14" font-family="Arial">ROLE MIX</text>
-            <text x="520" y="212" fill="#435564" font-size="14" font-family="Arial">REFLECTION</text>
-          </svg>
-          <div class="art-caption">
-            <b>مسئله مرکزی اپ</b>
-            <span>قبل از اینکه بپرسی «کدام سبک؟»، ببین «من کیستم، موقعیت چیست و Context چه می‌گوید؟»</span>
+          <div class="hero-trust">
+            <span>بر پایه مدل Armin Trost</span><i></i>
+            <span>The Reflective Leader</span><i></i>
+            <span>Context → Role Mix → Reflection</span>
           </div>
         </div>
-      </div>
-    </div>
-  </header>
 
-  <section class="pillars" id="pillars">
-    <div class="wrap">
-      <div class="pillars-grid">
-        <div class="pillar">
-          <div class="n">00 · ORIENTATION</div>
-          <h3>خودت و پیش‌فرض‌هایت را ببین</h3>
-          <p>این بخش فقط onboarding و personalization است؛ هنوز وارد مدل اصلی کتاب نشده‌ای.</p>
-          <strong>Core model از Context شروع می‌شود.</strong>
-        </div>
-        <div class="pillar">
-          <div class="n">01 · CONTEXT</div>
-          <h3>Context را دقیق بفهم</h3>
-          <p>Tasks، Employees، Team و Organization را جداگانه ببین؛ حتی Today و Future را مقایسه کن.</p>
-          <strong>اولین قدم مدل Trost.</strong>
-        </div>
-        <div class="pillar">
-          <div class="n">02 · IDEA → RELATIONSHIP → TOOLS → REFLECTION</div>
-          <h3>Idea of Leadership را بساز و زنده کن</h3>
-          <p>چهار Role را بشناس، Role Mix خودت را تعریف کن، با کارکنان و مافوق هم‌فهمی بساز و ابزارهای سازگار انتخاب کن.</p>
-          <strong>Act → Reflect → Adjust.</strong>
+        <div class="hero-visual-premium" aria-label="نمای مفهومی رهبری بازتابی">
+          <div class="reflective-stage">
+            <div class="context-ring-label">LEADERSHIP CONTEXT</div>
+
+            <div class="role-orb role-boss"><b>BOSS</b><span>Direction</span></div>
+            <div class="role-orb role-coach"><b>COACH</b><span>Self-regulation</span></div>
+            <div class="role-orb role-partner"><b>PARTNER</b><span>Shared responsibility</span></div>
+            <div class="role-orb role-enabler"><b>ENABLER</b><span>Conditions</span></div>
+
+            <div class="core-mirror">
+              <small>REFLECT</small>
+              <strong>CONTEXT</strong>
+              <span>before role choice</span>
+            </div>
+
+            <div class="reflective-prompt">
+              <b>قبل از انتخاب رفتار، Context را ببین.</b>
+              <span>نقش مناسب را از روی یک فرمول ثابت انتخاب نکن.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bookline">
+  <section class="home-strip">
     <div class="wrap">
-      <div>
-        <h2>کتاب کجا وارد می‌شود؟</h2>
-        <p>
-          درست در لحظه‌ای که لازم است: هر مرحله یک insight کوتاه از منطق کتاب می‌دهد و بعد فوراً آن را به یک سؤال، انتخاب یا اقدام واقعی تبدیل می‌کند.
-        </p>
+      <div class="journey-strip">
+        <div class="journey-node"><small>01</small><b>Context</b><span>Tasks · Employees · Team · Organization</span></div>
+        <div class="journey-node"><small>02</small><b>Roles</b><span>Boss · Coach · Partner · Enabler</span></div>
+        <div class="journey-node"><small>03</small><b>Idea of Leadership</b><span>Primary role · Role mix</span></div>
+        <div class="journey-node"><small>04</small><b>Relationship & Tools</b><span>Shared idea · Compatible tools</span></div>
+        <div class="journey-node"><small>05</small><b>Reflection</b><span>Act · Observe · Adjust</span></div>
       </div>
-      <button class="btn primary" onclick="startJourney()">شروع مسیر</button>
+    </div>
+  </section>
+
+  <section class="home-principles" id="pillars">
+    <div class="wrap">
+      <div class="home-heading">
+        <div>
+          <small>HOW THE APP THINKS</small>
+          <h2>سه اصل، نه ده‌ها منو</h2>
+          <p>محتوای کتاب پشت تجربه قرار دارد؛ کاربر باید مسئله را بفهمد و عمل کند، نه اینکه فقط فصل بخواند.</p>
+        </div>
+      </div>
+
+      <div class="principle-grid">
+        <article class="principle-card">
+          <div class="num">01 · ORIENTATION</div>
+          <h3>اول، ذهن خودت را ببین</h3>
+          <p>نقش فعلی، تجربه و چند پیش‌فرض مهم تو ثبت می‌شود؛ فقط برای framing و personalization.</p>
+          <div class="key">این هنوز مدل اصلی نیست.</div>
+        </article>
+
+        <article class="principle-card">
+          <div class="num">02 · CONTEXT</div>
+          <h3>بعد، Context را بخوان</h3>
+          <p>Tasks، Employees، Team و Organization را جداگانه می‌بینی و Today را با Future مقایسه می‌کنی.</p>
+          <div class="key">مدل Trost از اینجا شروع می‌شود.</div>
+        </article>
+
+        <article class="principle-card">
+          <div class="num">03 · IDEA & REFLECTION</div>
+          <h3>Role Mix را آگاهانه بساز</h3>
+          <p>Role را الگوریتم انتخاب نمی‌کند؛ تو با توجه به Context، شخصیت، competence و رابطه آن را تعریف و بازنگری می‌کنی.</p>
+          <div class="key">Act → Reflect → Adjust</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="model-section">
+    <div class="wrap model-box">
+      <div>
+        <small style="font-size:11px;color:#9a7745;letter-spacing:.08em">THE BOOK → THE EXPERIENCE</small>
+        <h2>کتاب به یک تجربه تصمیم‌گیری تبدیل شده است.</h2>
+        <p>
+          به‌جای نمایش فصل‌ها، منطق اصلی کتاب در مسیر کاربر جریان دارد:
+          Context را می‌فهمی، Idea of Leadership را می‌سازی، آن را در رابطه و ابزارها اجرا می‌کنی
+          و بعد بر اساس یک Situation واقعی دوباره Reflection انجام می‌دهی.
+        </p>
+        <div class="model-cta">
+          <button class="btn primary" onclick="startJourney()">ورود به Journey</button>
+          <button class="btn ghost" onclick="openCoach()">از مربی بپرس</button>
+        </div>
+      </div>
+
+      <div class="model-flow">
+        <div><b>Leadership Context</b><span>01</span></div>
+        <div><b>Idea of Leadership</b><span>02</span></div>
+        <div><b>Leader–Employee Relationship</b><span>03</span></div>
+        <div><b>Leadership Tools</b><span>04</span></div>
+        <div><b>Continuous Reflection</b><span>05</span></div>
+      </div>
     </div>
   </section>
 
