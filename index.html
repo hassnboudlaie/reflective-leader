@@ -648,6 +648,22 @@ body{font-family:"Vazirmatn",Tahoma,"Segoe UI",Arial,sans-serif}
   .model-box h2{font-size:24px}
 }
 
+
+/* UX refinement: content-preserving, progressive disclosure */
+body{font-family:Vazirmatn,Tahoma,sans-serif;font-size:16px;line-height:1.85}
+.hero-copy>p,.lead{font-size:16px}.pillar p,.lesson p,.question,.choice,.idea,.reflectbox p,.resultitem b{font-size:14px}
+.nav-actions button,.pathitem,.sidecard h3,.booklogic summary{font-size:13px}
+.maincard{max-width:850px;width:100%;margin-inline:auto;padding:clamp(18px,3vw,32px)}
+.stagegrid{grid-template-columns:minmax(0,1fr) 205px;align-items:start}
+.maincard .lesson{margin-bottom:20px}
+.stage-body-section{border:1px solid var(--line);border-radius:15px;margin:12px 0;background:#fff;overflow:hidden}
+.stage-body-section>summary{list-style:none;cursor:pointer;padding:15px 18px;color:var(--navy);font-size:16px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.stage-body-section>summary::-webkit-details-marker{display:none}
+.stage-body-section>summary:after{content:'＋';color:var(--gold);font-size:20px}
+.stage-body-section[open]>summary:after{content:'−'}
+.stage-body-section>.section-inner{padding:0 16px 18px}
+@media(max-width:900px){.stagegrid{grid-template-columns:1fr}.sidecard{position:static}}
+@media(max-width:600px){.maincard{padding:18px}.hero h1{font-size:clamp(34px,10vw,44px)}.choice-grid,.rolegrid,.mixgrid{grid-template-columns:1fr}.stage-body-section>summary{font-size:15px}}
 </style>
 </head>
 <body>
@@ -1210,7 +1226,25 @@ function validate(){
   if(current===6 && !state.toolGoal){alert("Expected Benefit را انتخاب کن.");return false}
   return true;
 }
-function render(){
+
+function enhanceStageDisclosure(){
+ const root=document.getElementById("stageBody");if(!root)return;
+ const nodes=Array.from(root.children);if(nodes.length<3)return;
+ // Group consecutive original content nodes; preserve every node and its event handlers.
+ const chunks=[];let chunk=[];
+ nodes.forEach((node)=>{if(node.matches && node.matches('h2,h3,h4') && chunk.length){chunks.push(chunk);chunk=[]}chunk.push(node)});
+ if(chunk.length)chunks.push(chunk);
+ if(chunks.length<2)return;
+ chunks.forEach((items,i)=>{
+  const details=document.createElement('details');details.className='stage-body-section';if(i===0)details.open=true;
+  const summary=document.createElement('summary');
+  const heading=items.find(el=>el.matches&&el.matches('h2,h3,h4'));
+  summary.textContent=heading?heading.textContent.trim():'بخش '+(i+1);
+  const inner=document.createElement('div');inner.className='section-inner';items.forEach(el=>inner.appendChild(el));
+  details.append(summary,inner);root.appendChild(details);
+ });
+}
+\nfunction render(){
   const s=stages[current];
   document.getElementById("stageLabel").textContent="مرحله "+(current+1)+" از "+stages.length;
   document.getElementById("stageNo").textContent="STEP "+String(current+1).padStart(2,"0");
@@ -1220,6 +1254,7 @@ function render(){
   document.getElementById("bookRef").textContent=s.book;
   document.getElementById("bar").style.width=((current+1)/stages.length*100)+"%";
   document.getElementById("stageBody").innerHTML=bodyFor(current);
+  enhanceStageDisclosure();
   document.getElementById("prevBtn").style.visibility=current===0?"hidden":"visible";
   document.getElementById("nextBtn").textContent=current===stages.length-1?"شروع Context جدید":"مرحله بعد";
   document.getElementById("nextBtn").onclick=current===stages.length-1?resetJourney:nextStage;
