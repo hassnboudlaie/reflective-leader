@@ -664,6 +664,27 @@ body{font-family:Vazirmatn,Tahoma,sans-serif;font-size:16px;line-height:1.85}
 .stage-body-section>.section-inner{padding:0 16px 18px}
 @media(max-width:900px){.stagegrid{grid-template-columns:1fr}.sidecard{position:static}}
 @media(max-width:600px){.maincard{padding:18px}.hero h1{font-size:clamp(34px,10vw,44px)}.choice-grid,.rolegrid,.mixgrid{grid-template-columns:1fr}.stage-body-section>summary{font-size:15px}}
+
+/* Dashboard-first navigation and compact drill-down content */
+.stagegrid{grid-template-columns:minmax(0,1fr) 250px;gap:22px}
+.sidecard{top:90px;padding:18px;max-height:calc(100vh - 110px);overflow:auto}
+.dashboard-status{background:#f2f6f4;border-radius:12px;padding:12px;margin-bottom:14px;color:#45685d;font-size:13px;font-weight:700}
+.pathitem{display:block;width:100%;text-align:right;cursor:pointer;font:inherit;font-size:13px;line-height:1.6;min-height:43px;transition:.2s}
+.pathitem:hover,.pathitem:focus-visible{border-color:var(--gold);background:#faf6ed;outline:none}
+.pathitem.current{border-right:4px solid var(--gold)}
+.dashboard-home{width:100%;margin-top:12px;padding:12px;border:1px solid var(--line);background:#fff;border-radius:12px;color:var(--navy);font-weight:700}
+.lesson{border-right:0!important;background:transparent!important;padding:0!important}
+.lesson b{font-size:12px!important}
+.lesson p{font-size:14px!important}
+.lesson details{background:#f8f5ee;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.lesson summary{cursor:pointer;color:var(--navy);font-size:14px;font-weight:700}
+.lesson details p{margin-top:9px!important}
+.stage-body-section{margin:10px 0;box-shadow:none}
+.stage-body-section>summary{padding:16px 18px;font-size:15px}
+.stage-body-section>.section-inner{padding:8px 18px 20px}
+.stage-body-section:not([open]){background:#fcfbf8}
+@media(max-width:900px){.stagegrid{grid-template-columns:1fr}.sidecard{position:static;max-height:none;order:-1}.stagegrid{display:flex;flex-direction:column}.maincard,.sidecard{width:100%}.pathlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:500px){.pathlist{grid-template-columns:1fr 1fr}.pathitem{font-size:12px;padding:9px}.maincard{padding:16px}.sidecard{padding:14px}}
 </style>
 </head>
 <body>
@@ -867,9 +888,9 @@ body{font-family:Vazirmatn,Tahoma,sans-serif;font-size:16px;line-height:1.85}
       </main>
 
       <aside class="sidecard">
-        <h3>مسیر شما</h3>
+        <h3>داشبورد رهبری <small style="display:block;font-weight:400;color:var(--muted)">Leadership Dashboard</small></h3><div class="dashboard-status" id="dashboardStatus"></div>
         <div class="pathlist" id="pathList"></div>
-        <div class="note">این journey یک leadership companion است؛ نه آزمون شخصیت و نه نسخه ثابت.</div>
+        <button class="dashboard-home" onclick="goHome()">⌂ بازگشت به صفحه اصلی</button><div class="note">این journey یک leadership companion است؛ نه آزمون شخصیت و نه نسخه ثابت.</div>
       </aside>
     </div>
   </div>
@@ -1229,22 +1250,31 @@ function validate(){
 
 function enhanceStageDisclosure(){
  const root=document.getElementById("stageBody");if(!root)return;
- const nodes=Array.from(root.children);if(nodes.length<3)return;
- // Group consecutive original content nodes; preserve every node and its event handlers.
+ const nodes=Array.from(root.children);
+ if(!nodes.length)return;
  const chunks=[];let chunk=[];
- nodes.forEach((node)=>{if(node.matches && node.matches('h2,h3,h4') && chunk.length){chunks.push(chunk);chunk=[]}chunk.push(node)});
+ nodes.forEach(node=>{
+  if(node.matches&&node.matches('h2,h3,h4')&&chunk.length){chunks.push(chunk);chunk=[];}
+  chunk.push(node);
+ });
  if(chunk.length)chunks.push(chunk);
- if(chunks.length<2)return;
+ // Present every original content block as a clickable drill-down card.
  chunks.forEach((items,i)=>{
-  const details=document.createElement('details');details.className='stage-body-section';if(i===0)details.open=true;
+  const detail=document.createElement('details');detail.className='stage-body-section';
   const summary=document.createElement('summary');
   const heading=items.find(el=>el.matches&&el.matches('h2,h3,h4'));
-  summary.textContent=heading?heading.textContent.trim():'بخش '+(i+1);
-  const inner=document.createElement('div');inner.className='section-inner';items.forEach(el=>inner.appendChild(el));
-  details.append(summary,inner);root.appendChild(details);
+  const label=heading?heading.textContent.trim():'بخش '+(i+1)+' · مشاهده جزئیات و تمرین';
+  summary.textContent=label;
+  const inner=document.createElement('div');inner.className='section-inner';
+  items.forEach(el=>inner.appendChild(el));
+  detail.append(summary,inner);root.appendChild(detail);
  });
 }
-\nfunction render(){
+function goToDashboardStage(i){
+ if(i<0||i>=stages.length)return;
+ current=i;render();window.scrollTo({top:0,behavior:'smooth'});
+}
+function render(){
   const s=stages[current];
   document.getElementById("stageLabel").textContent="مرحله "+(current+1)+" از "+stages.length;
   document.getElementById("stageNo").textContent="STEP "+String(current+1).padStart(2,"0");
@@ -1255,12 +1285,14 @@ function enhanceStageDisclosure(){
   document.getElementById("bar").style.width=((current+1)/stages.length*100)+"%";
   document.getElementById("stageBody").innerHTML=bodyFor(current);
   enhanceStageDisclosure();
+  const lesson=document.querySelector(".maincard .lesson");if(lesson){const p=lesson.querySelector("p");if(p&&!lesson.querySelector("details")){const d=document.createElement("details");const summary=document.createElement("summary");summary.textContent="مشاهده نکته کلیدی این مرحله";d.append(summary,p);lesson.appendChild(d);}}
   document.getElementById("prevBtn").style.visibility=current===0?"hidden":"visible";
   document.getElementById("nextBtn").textContent=current===stages.length-1?"شروع Context جدید":"مرحله بعد";
   document.getElementById("nextBtn").onclick=current===stages.length-1?resetJourney:nextStage;
+  const status=document.getElementById("dashboardStatus");if(status)status.textContent="مرحله "+(current+1)+" از "+stages.length+" · "+Math.round((current+1)/stages.length*100)+"٪ مسیر";
   const list=document.getElementById("pathList");list.innerHTML="";
   stages.forEach((x,i)=>{
-    const d=document.createElement("div");
+    const d=document.createElement("button");d.type="button";d.onclick=()=>goToDashboardStage(i);
     d.className="pathitem "+(i===current?"current":i<current?"done":"");
     d.textContent=(i+1)+". "+x.nav;
     list.appendChild(d);
