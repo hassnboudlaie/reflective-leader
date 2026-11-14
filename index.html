@@ -688,7 +688,7 @@ body{font-family:Vazirmatn,Tahoma,sans-serif;font-size:16px;line-height:1.85}
 </head>
 <body>
 
-<div class="view active" id="landing">
+<div class="view active" id="landing"><a class="skip-link" href="#reflectiveMain">رفتن به محتوای اصلی</a>
   <nav class="topnav">
     <div class="wrap navrow">
       <div class="brand">
@@ -703,7 +703,7 @@ body{font-family:Vazirmatn,Tahoma,sans-serif;font-size:16px;line-height:1.85}
     </div>
   </nav>
 
-  <section class="premium-hero">
+  <section class="premium-hero" id="reflectiveMain" tabindex="-1">
     <div class="wrap">
       <div class="hero-shell">
         <div class="hero-copy-premium">
@@ -1387,7 +1387,7 @@ function saveCoachDraft(){
         <div class="coming">کوچ راهبری</div>
         <h3 style="margin-top:8px">اینجا گیر کردی؟ از مربی بپرس.</h3>
       </div>
-      <button class="close-btn" onclick="closeCoach()">×</button>
+      <button class="close-btn" onclick="closeCoach()" aria-label="بستن پنل کوچ">×</button>
     </div>
 
     <div class="coach-context" id="coachContext">این سؤال به مرحله فعلی Journey متصل می‌شود.</div>
