@@ -1,0 +1,18 @@
+/* Reflective Leader Impeccable layer — self-hosted Vazirmatn (SIL OFL 1.1). */
+@font-face{font-family:"Vazirmatn";src:url("./assets/fonts/Vazirmatn.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+html{scroll-padding-top:86px}
+body,button,input,textarea,select,summary{font-family:"Vazirmatn",Tahoma,Arial,sans-serif!important}
+:where(a,button,summary,input,textarea,select,[tabindex]):focus-visible{outline:3px solid #bc8747!important;outline-offset:3px!important}
+:where(a,button,summary,input,textarea,select){-webkit-tap-highlight-color:rgba(23,36,58,.15)}
+.brand span{font-size:12px}
+.nav-actions button{min-height:44px;font-size:14px}
+.kicker{font-size:13px}
+.lesson b{font-size:14px!important}
+.lesson p{font-size:16px!important;line-height:1.85}
+.pathitem{font-size:14px;min-height:44px}
+@media(max-width:640px){
+ input:not([type="checkbox"]):not([type="radio"]),textarea,select{font-size:max(16px,1em)}
+ .pathitem{font-size:14px}
+ .stage-body-section>summary{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.pathitem{transition:none!important;transform:none!important}}
