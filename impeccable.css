@@ -16,3 +16,17 @@ body,button,input,textarea,select,summary{font-family:"Vazirmatn",Tahoma,Arial,s
  .stage-body-section>summary{font-size:16px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.pathitem{transition:none!important;transform:none!important}}
+
+/* Deep audit — contrast repairs measured by axe-core on light surfaces. */
+.navrow .brand span{color:#344b57!important;opacity:1;font-size:12px}
+.journey-node small{color:#69461d!important;font-size:12px}
+.journey-node span{color:#435360!important;font-size:12px}
+.skip-link{position:absolute;top:-90px;inset-inline-start:12px;z-index:130;padding:11px 15px;background:#fff;color:#17243a;border:2px solid #17243a;border-radius:10px}
+.skip-link:focus{top:10px}
+@media(max-width:390px){.journey-node span{font-size:12px}}
+
+/* Contrast audit: exact failing text on warm cream/sand surfaces, WCAG 1.4.3. */
+.home-heading > div > small,
+.model-box > div > small{color:#634318!important;font-size:13px}
+.model-box > div > p{color:#344652!important;font-size:15px;line-height:1.8}
+footer > .wrap{color:#3c4c57!important;font-size:13px}
