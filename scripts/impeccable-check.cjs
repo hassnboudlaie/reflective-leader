@@ -44,7 +44,7 @@ async function main(){
      await page.screenshot({path:path.join(out,repo+"-"+width+".png"),fullPage:false});
      const axe=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa","wcag22aa"]).analyze();
      const high=axe.violations.filter(x=>["serious","critical"].includes(x.impact));
-     if(high.length)console.error("AXE_FINDINGS",JSON.stringify(high.map(v=>({id:v.id,impact:v.impact,help:v.help,nodes:v.nodes.slice(0,3).map(n=>({target:n.target,summary:n.failureSummary}))}))));
+     if(high.length)console.error("AXE_FINDINGS",JSON.stringify(high.map(v=>({id:v.id,impact:v.impact,help:v.help,nodes:v.nodes.slice(0,90).map(n=>({target:n.target,summary:n.failureSummary}))}))));
      assert.equal(high.length,0,"Unresolved serious/critical accessibility defects");
      console.log("PASS",repo,width,"local font; overflow="+metrics.overflow,"axe serious/critical="+high.length,"runtime warnings="+errors.length);
      if(metrics.overflow>20)throw Error("Severe horizontal overflow "+metrics.overflow+"px at "+width+"px");
