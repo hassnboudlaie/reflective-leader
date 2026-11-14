@@ -24,3 +24,9 @@ body,button,input,textarea,select,summary{font-family:"Vazirmatn",Tahoma,Arial,s
 .skip-link{position:absolute;top:-90px;inset-inline-start:12px;z-index:130;padding:11px 15px;background:#fff;color:#17243a;border:2px solid #17243a;border-radius:10px}
 .skip-link:focus{top:10px}
 @media(max-width:390px){.journey-node span{font-size:12px}}
+
+/* Contrast audit: exact failing text on warm cream/sand surfaces, WCAG 1.4.3. */
+.home-heading > div > small,
+.model-box > div > small{color:#634318!important;font-size:13px}
+.model-box > div > p{color:#344652!important;font-size:15px;line-height:1.8}
+footer > .wrap{color:#3c4c57!important;font-size:13px}
