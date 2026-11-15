@@ -1319,31 +1319,58 @@ function closeLogin(){
 function overlayClose(e,id){
   if(e.target.id===id)document.getElementById(id).classList.remove("show");
 }
+let coachReturnFocus=null;
 function openCoach(){
   const d=document.getElementById("coachDrawer");
   const c=document.getElementById("coachContext");
+  coachReturnFocus=document.activeElement;
   if(typeof stages!=="undefined" && typeof current!=="undefined" && stages[current]){
     c.textContent="مرحله فعلی: "+stages[current].title+" — سؤال تو همراه با همین Context نگه داشته می‌شود.";
   }
-  const saved=localStorage.getItem("reflectiveLeaderCoachDraft")||"";
+  let saved="";
+  try{saved=localStorage.getItem("reflectiveLeaderCoachDraft")||"";}catch(e){}
   document.getElementById("coachQuestion").value=saved;
+  document.getElementById("draftStatus").classList.remove("show");
   d.classList.add("show");
+  document.getElementById("coachQuestion").focus();
 }
 function closeCoach(){
-  document.getElementById("coachDrawer").classList.remove("show");
+  const d=document.getElementById("coachDrawer");
+  if(!d.classList.contains("show"))return;
+  d.classList.remove("show");
+  if(coachReturnFocus?.isConnected)coachReturnFocus.focus();
 }
 function drawerClose(e){
   if(e.target.id==="coachDrawer")closeCoach();
 }
 function saveCoachDraft(){
-  const q=document.getElementById("coachQuestion").value.trim();
+  const field=document.getElementById("coachQuestion");
+  const status=document.getElementById("draftStatus");
+  const q=field.value.trim();
   if(!q){
-    alert("اول سؤال یا مسئله‌ات را بنویس.");
-    return;
+    status.textContent="برای ذخیره، ابتدا سؤال یا مسئله‌ات را بنویس.";
+    status.classList.add("show");field.focus();return;
   }
-  localStorage.setItem("reflectiveLeaderCoachDraft",q);
-  document.getElementById("draftStatus").classList.add("show");
+  try{
+    localStorage.setItem("reflectiveLeaderCoachDraft",q);
+    status.textContent="سؤال روی همین دستگاه ذخیره شد. هنوز چیزی برای کوچ ارسال نشده است.";
+  }catch(e){
+    status.textContent="امکان ذخیره در این مرورگر وجود ندارد. متن را کپی کنید تا از دست نرود.";
+  }
+  status.classList.add("show");
 }
+document.addEventListener("keydown",e=>{
+ const d=document.getElementById("coachDrawer");
+ if(!d?.classList.contains("show"))return;
+ if(e.key==="Escape"){e.preventDefault();closeCoach();return;}
+ if(e.key!=="Tab")return;
+ const focusable=[...d.querySelectorAll('button:not([disabled]),textarea:not([disabled]),a[href]')]
+  .filter(el=>el.getClientRects().length>0);
+ if(!focusable.length)return;
+ const first=focusable[0],last=focusable[focusable.length-1];
+ if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+ else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+});
 
 </script>
 
@@ -1393,7 +1420,7 @@ function saveCoachDraft(){
     <div class="coach-context" id="coachContext">این سؤال به مرحله فعلی Journey متصل می‌شود.</div>
 
     <div class="coach-question">
-      <label>سؤال یا مسئله‌ات را بنویس</label>
+      <label for="coachQuestion">سؤال یا مسئله‌ات را بنویس</label>
       <textarea id="coachQuestion" placeholder="مثلاً: بین نقش Coach و Partner در این موقعیت مرددم؛ چه چیزهایی را باید بررسی کنم؟"></textarea>
     </div>
 
@@ -1401,7 +1428,7 @@ function saveCoachDraft(){
       <button class="save-draft" onclick="saveCoachDraft()">ذخیره سؤال به‌عنوان Draft</button>
       <button class="view-services" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">خدمات کوچینگ</button>
     </div>
-    <div class="draft-status" id="draftStatus">سؤال روی همین دستگاه ذخیره شد. ارسال واقعی به کوچ بعد از فعال شدن حساب و پرداخت انجام می‌شود.</div>
+    <div class="draft-status" id="draftStatus" role="status" aria-live="polite">سؤال روی همین دستگاه ذخیره شد. ارسال واقعی به کوچ بعد از فعال شدن حساب و پرداخت انجام می‌شود.</div>
 
     <section class="coaching-services" id="services">
       <h4>خدمات کوچینگ راهبری</h4>

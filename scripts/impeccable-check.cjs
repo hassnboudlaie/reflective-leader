@@ -48,6 +48,19 @@ async function main(){
      assert.equal(high.length,0,"Unresolved serious/critical accessibility defects");
      console.log("PASS",repo,width,"local font; overflow="+metrics.overflow,"axe serious/critical="+high.length,"runtime warnings="+errors.length);
      if(metrics.overflow>20)throw Error("Severe horizontal overflow "+metrics.overflow+"px at "+width+"px");
+     if(width===390){
+      await page.evaluate(()=>openCoach());
+      await page.locator('#coachDrawer.show').waitFor();
+      assert.equal(await page.locator('#coachQuestion').evaluate(el=>document.activeElement===el),true,"Coach question should receive focus");
+      await page.locator('#coachQuestion').fill("چگونه برای این موقعیت نقش Coach را انتخاب کنم؟");
+      await page.locator('#coachDrawer .save-draft').click();
+      assert.match(await page.locator('#draftStatus').textContent(),/ذخیره شد/);
+      await page.keyboard.press('Escape');
+      assert.equal(await page.locator('#coachDrawer.show').count(),0,"Escape must close coach drawer");
+      await page.evaluate(()=>openCoach());
+      assert.match(await page.locator('#coachQuestion').inputValue(),/Coach/,"Saved coaching question not restored");
+      await page.locator('#coachDrawer .close-btn').click();
+     }
     }finally{await context.close()}
    }
   }finally{await browser.close()}
